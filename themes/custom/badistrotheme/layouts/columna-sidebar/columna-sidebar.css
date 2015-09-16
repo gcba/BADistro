@@ -1,0 +1,14 @@
+.panel-bastrap-4 {
+	width: 32%;
+	margin: 5px;
+	float: left;
+}
+.panel-bastrap-8 {
+	width: 65%;
+	margin: 5px;
+	float: left;
+}
+.panel-bastrap-12 {
+	margin: 5px;
+	clear: both;	
+}
