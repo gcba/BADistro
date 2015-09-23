@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CCK feature.
+ */
+
+include_once 'badistro_cck.features.inc';

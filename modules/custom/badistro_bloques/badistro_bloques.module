@@ -1,0 +1,68 @@
+<?php
+/*
+* Implements hook_ctools_plugin_directory().
+*/
+function badistro_bloques_ctools_plugin_directory($owner, $plugin_type) {
+   if ($owner == 'ctools' && $plugin_type == 'content_types') {
+     return 'plugins/' . $plugin_type;
+   }
+ }
+
+/*function badistro_bloques_block_info(){
+  return array(
+    'alerta' => array(
+      'info' => t('Alerta'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    ),
+    'links' => array(
+      'info' => t('Links'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    ),
+    'imagen_destacada' => array(
+      'info' => t('Imagen destacada'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    ),
+    'titulo' => array(
+      'info' => t('Título'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    ),
+    'texto' => array(
+      'info' => t('Texto'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    ),
+    'shortcut' => array(
+      'info' => t('Atajo'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    ),
+  );
+}
+*/
+
+function badistro_theme($existing, $type, $theme, $path) {
+  return array(
+    'badistro_bloques_alerta' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_alerta'
+    ),
+    'badistro_bloques_links' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_links'
+    ),
+    'badistro_bloques_imagen_destacada' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_imagen_destacada'
+    ),
+    'badistro_bloques_titulo' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_titulo'
+    ),
+    'badistro_bloques_texto' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_texto'
+    ),
+    'badistro_bloques_shortcut' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_shortcut'
+    ),
+  );
+}

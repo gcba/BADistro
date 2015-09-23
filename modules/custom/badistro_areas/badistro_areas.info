@@ -1,0 +1,17 @@
+name = Áreas
+core = 7.x
+package = BA Distro
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = badistro_cck
+dependencies[] = image
+dependencies[] = link
+dependencies[] = text
+features[features_api][] = api:2
+features[field_instance][] = node-area-body
+features[field_instance][] = node-area-field_area
+features[field_instance][] = node-area-field_featured_image
+features[field_instance][] = node-area-field_links_relacionados
+features[field_instance][] = node-area-field_paginas_relacionadas
+features[field_instance][] = node-area-field_siglas
+features[node][] = area

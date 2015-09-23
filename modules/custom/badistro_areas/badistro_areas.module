@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Áreas feature.
+ */
+
+include_once 'badistro_areas.features.inc';

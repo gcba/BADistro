@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Páginas feature.
+ */
+
+include_once 'badistro_paginas.features.inc';

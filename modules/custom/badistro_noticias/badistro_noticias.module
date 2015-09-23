@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Noticias feature.
+ */
+
+include_once 'badistro_noticias.features.inc';

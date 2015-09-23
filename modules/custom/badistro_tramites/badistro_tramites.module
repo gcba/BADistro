@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Trámites feature.
+ */
+
+include_once 'badistro_tramites.features.inc';
