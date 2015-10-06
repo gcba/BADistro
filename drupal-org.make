@@ -23,6 +23,8 @@ projects[file_entity][version] = 2.0-beta2
 
 projects[i18n][version] = 1.13
 
+projects[jquery_update][version] = 3.0-alpha2
+
 projects[link][version] = 1.3
 
 projects[media][version] = 2.0-beta1
