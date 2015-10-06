@@ -32,3 +32,4 @@ features[filter][] = full_html
 features[filter][] = plain_text
 features[page_manager_handlers][] = pm_existing_pages_node_overview__pagina_principal
 features[taxonomy][] = tags
+features[user_role][] = Editor de Contenido
