@@ -16,8 +16,8 @@ function badistro_install_tasks(){
     'type' => 'normal',
   );
 
-  $tasks['enable_pm_existing_pages_node_overview'] = array(
-    'display_name' => t('Habilitar panel'),
+  $tasks['enable_pages'] = array(
+    'display_name' => t('Habilitar paneles'),
     'display' => TRUE,
     'type' => 'normal',
   );
@@ -45,15 +45,12 @@ function enable_badistro_themes(){
 
 // Habilita Node Overview de Page Manager Existing Pages
 
-function enable_pm_existing_pages_node_overview(){
-
-  $page_name = "pm_existing_pages-node_overview";
-
-  $page = page_manager_get_page_cache($page_name);
-
-  $function = ctools_plugin_get_function($page->subtask, "enable callback"); 
-
-  $function($page, FALSE); 
-
-  menu_rebuild();
+function enable_pages(){
+  $pages = array("pm_existing_pages-node_overview", "node_view");
+  foreach ($pages as $item) {
+    $page = page_manager_get_page_cache($item);
+    $function = ctools_plugin_get_function($page->subtask, "enable callback"); 
+    $function($page, FALSE); 
+    menu_rebuild();
+  }
 }
