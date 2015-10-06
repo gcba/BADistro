@@ -2,6 +2,7 @@
 /*
 * Implements hook_ctools_plugin_directory().
 */
+
 function badistro_bloques_ctools_plugin_directory($owner, $plugin_type) {
    if ($owner == 'ctools' && $plugin_type == 'content_types') {
      return 'plugins/' . $plugin_type;
@@ -43,6 +44,10 @@ function badistro_theme($existing, $type, $theme, $path) {
     'badistro_bloques_alerta' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_alerta'
+    ),
+    'badistro_bloques_carrousel' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_carrousel'
     ),
     'badistro_bloques_links' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',

@@ -9,7 +9,7 @@ $plugin = array(
   'edit form' => 'badistro_bloques_carrousel_edit_form',
   'admin info' => 'badistro_bloques_carrousel_admin_info',
   'defaults' => array(
-    'texto' =>   'hola',
+    'tipos_de_contenido' => array(),
   )
 );
 
@@ -19,8 +19,8 @@ $plugin = array(
 function badistro_bloques_carrousel_admin_info($subtype, $conf, $contexts) {
   if (!empty($conf)) {
     $block = new stdClass;
-    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Alerta');
-    $block->content = t('Carrousel tipo @tipo.', array('@tipo' => $conf['tipo']));
+    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Carrousel');
+    $block->content = t('Carrousel');
     return $block;
   }
 }
@@ -29,21 +29,20 @@ function badistro_bloques_carrousel_admin_info($subtype, $conf, $contexts) {
 * 'Edit form' callback for the content type.
 */
 function badistro_bloques_carrousel_edit_form($form, &$form_state) {
-
-  $form['texto'] = array(
-      '#title' => t('Contenido'),
-      '#type' => 'text_format',
-      '#format' => 'full_html',
-      '#default_value' => $form_state['conf']['texto'],
-      '#required' => TRUE,
-    );
-
-  $form['referenced_entity_id'] = array(
-    '#type' => 'entityreference',
-    '#title' => t('The Reference'),
-    '#era_entity_type' => array(),
-    '#era_bundles' => array('area', 'noticia'),
-    '#era_cardinality' => 1,
+  foreach (node_type_get_types() as $item) {
+    $tiposDeContenido[$item->type] = $item->name;
+  }
+  $form['tipos_de_contenido'] = array(
+    '#title' => t('Tipos de contenido'),
+    '#type' => 'checkboxes',
+    '#default_value' => $form_state['conf']['tipos_de_contenido'],
+    '#required' => TRUE,
+    '#options' => $tiposDeContenido,
+  );
+  $form['cantidad_de_slides'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cantidad de slides'),
+    '#element_validate' => array('element_validate_integer_positive'), 
   );
 
   return $form;
@@ -60,18 +59,24 @@ function badistro_bloques_carrousel_edit_form_submit($form, &$form_state) {
   }
 }
 function badistro_bloques_carrousel_render($subtype, $conf, $panel_args, $context = NULL){
-  
-  if(arg(0) == 'node' && is_numeric(arg(1))){
-    
-    $node = node_load(arg(1));
-
-    $imagen = field_get_items('node', $node, 'field_featured_image', $langcode = NULL);
-    $imagen = isset($imagen[0]) ? theme_image_style(array('style_name' => 'large', 'path' => $imagen[0]["uri"])) : NULL;
-
-    $block = new stdClass();
-    $block->title = '';
-    $block->content = $imagen;
+  $block = new stdClass();
+  $block->title = '';
+  $view = views_get_view('listado_de_contenido');
+  $view->execute();
+  foreach ($view->result as $key => $item) {
+    $slides[] = crearSlide($item);
   }
-
+  $block->content = theme('badistro_bloques_carrousel', array('slides' => $slides));
   return $block;
+}
+function crearSlide($item){
+  $slide = new stdClass();
+  $slide->id = $item->nid;
+  $slide->titulo = $item->node_title;
+  $slide->caption = field_get_items('node', $item->_field_data["nid"]["entity"], 'body', NULL);
+  $slide->caption = $slide->caption[0]["summary"];
+  $slide->imagen = field_get_items('node', $item->_field_data["nid"]["entity"], 'field_featured_image', NULL);
+  $slide->imagen = theme_image_style(array('style_name' => 'wide', 'path' => $slide->imagen[0]["uri"]));
+  $slide->imagen = l($slide->imagen, 'node/' . $slide->id, array('html' => TRUE));
+  return $slide;
 }
