@@ -1,15 +1,13 @@
 <div class="col-md-3">
-        <div class="shortcut shortcut-azul">
-        <span class="glyphicon glyphicon-home"></span>
-        </div>
+  <div class="shortcut <?php echo $color; ?>">
+    <span class="glyphicon <?php echo $icono; ?>"></span>
+  </div>
 
-        <h3 class="text-center">
-        Shortcut 1
-        </h3>
+  <h3 class="text-center">
+  <?php echo $titulo; ?>
+  </h3>
 
-        <p class="text-center">
-        Lorem ipsum dolor sit amet In hac habitasse platea dictumst
-    	</p>
+  <p class="text-center">
+  <?php echo $texto; ?>
+  </p>
 </div>
-
-<!-- colores: -->
