@@ -10,7 +10,9 @@ $plugin = array(
   'admin info' => 'badistro_bloques_shortcut_admin_info',
   'defaults' => array(
     'color_fondo' => 'shortcut-azul',
-    'icono' => 'glyphicon-home'
+    'icono' => 'glyphicon-home',
+    'titulo' => '',
+    'texto' => '',
   )
 );
 
@@ -30,6 +32,18 @@ function badistro_bloques_shortcut_admin_info($subtype, $conf, $contexts) {
 * 'Edit form' callback for the content type.
 */
 function badistro_bloques_shortcut_edit_form($form, &$form_state) {
+  $form['titulo'] = array(
+    '#title' => t('Título'),
+    '#type' => 'textfield',
+    '#default_value' => $form_state['conf']['titulo']['value'],
+    '#required' => TRUE,
+  );
+  $form['texto'] = array(
+    '#title' => t('Texto'),
+    '#type' => 'textfield',
+    '#default_value' => $form_state['conf']['texto']['value'],
+    '#required' => FALSE,
+  );
   $form['color_fondo'] = array(
     '#title' => t('Color de fondo'),
     '#type' => 'select',
@@ -52,7 +66,6 @@ function badistro_bloques_shortcut_edit_form($form, &$form_state) {
       'glyphicon-heart' => t('Corazón'),
     ),
   );
-
   return $form;
 }
 
@@ -69,6 +82,6 @@ function badistro_bloques_shortcut_edit_form_submit($form, &$form_state) {
 function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
-  $block->content = theme('badistro_bloques_shortcut', array('color' => $conf['color_fondo'], 'icono' => $conf['icono']));
+  $block->content = theme('badistro_bloques_shortcut', array('color' => $conf['color_fondo'], 'icono' => $conf['icono'], 'texto' => $conf['texto'], 'titulo' => $conf['titulo']));
   return $block;
 }
