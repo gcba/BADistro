@@ -69,5 +69,9 @@ function badistro_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_shortcut'
     ),
+    'badistro_bloques_separador' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_separador'
+    ),
   );
 }
