@@ -35,13 +35,13 @@ function badistro_bloques_shortcut_edit_form($form, &$form_state) {
   $form['titulo'] = array(
     '#title' => t('Título'),
     '#type' => 'textfield',
-    '#default_value' => $form_state['conf']['titulo']['value'],
+    '#default_value' => $form_state['conf']['titulo'],
     '#required' => TRUE,
   );
   $form['texto'] = array(
     '#title' => t('Texto'),
     '#type' => 'textfield',
-    '#default_value' => $form_state['conf']['texto']['value'],
+    '#default_value' => $form_state['conf']['texto'],
     '#required' => FALSE,
   );
   $form['color_fondo'] = array(
