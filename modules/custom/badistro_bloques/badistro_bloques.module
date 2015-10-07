@@ -49,9 +49,9 @@ function badistro_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_carrousel'
     ),
-    'badistro_bloques_links' => array(
+    'badistro_bloques_listado_links' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
-      'template' => 'badistro_bloques_links'
+      'template' => 'badistro_bloques_listado_links'
     ),
     'badistro_bloques_imagen_destacada' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
