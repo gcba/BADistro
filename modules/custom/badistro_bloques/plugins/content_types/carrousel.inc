@@ -10,6 +10,7 @@ $plugin = array(
   'admin info' => 'badistro_bloques_carrousel_admin_info',
   'defaults' => array(
     'tipos_de_contenido' => array(),
+    'cantidad_de_slides' => 3
   )
 );
 
@@ -42,6 +43,7 @@ function badistro_bloques_carrousel_edit_form($form, &$form_state) {
   $form['cantidad_de_slides'] = array(
     '#type' => 'textfield',
     '#title' => t('Cantidad de slides'),
+    '#default_value' => $form_state['conf']['cantidad_de_slides'],
     '#element_validate' => array('element_validate_integer_positive'), 
   );
 
@@ -62,6 +64,7 @@ function badistro_bloques_carrousel_render($subtype, $conf, $panel_args, $contex
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
+  $view->set_items_per_page($conf["cantidad_de_slides"]);
   $view->execute();
   foreach ($view->result as $key => $item) {
     $slides[] = crearSlide($item);
