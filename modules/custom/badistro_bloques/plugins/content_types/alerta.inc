@@ -39,7 +39,8 @@ function badistro_bloques_alerta_edit_form($form, &$form_state) {
       'success' => t('Success'),
       'info' => t('Info'),
       'warning' => t('Warning'),
-      'danger' => t('Danger')
+      'danger' => t('Danger'),
+      'default' => t('Default'),
     ),
   );
 
