@@ -79,7 +79,7 @@ function crearSlide($item){
   $slide->caption = field_get_items('node', $item->_field_data["nid"]["entity"], 'body', NULL);
   $slide->caption = $slide->caption[0]["summary"];
   $slide->imagen = field_get_items('node', $item->_field_data["nid"]["entity"], 'field_featured_image', NULL);
-  $slide->imagen = theme_image_style(array('style_name' => 'wide', 'path' => $slide->imagen[0]["uri"]));
+  $slide->imagen = theme_image_style(array('style_name' => 'wide', 'path' => $slide->imagen[0]["uri"], 'width' => '', 'height' => ''));
   $slide->imagen = l($slide->imagen, 'node/' . $slide->id, array('html' => TRUE));
   return $slide;
 }
