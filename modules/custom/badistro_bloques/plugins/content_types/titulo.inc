@@ -11,6 +11,7 @@ $plugin = array(
   'defaults' => array(
     'tag' => 'success',
     'texto' => NULL,
+    'sobreescribir_titulo' => 0
   )
 );
 
@@ -29,11 +30,24 @@ function badistro_bloques_titulo_edit_form($form, &$form_state){
     ),
   );
 
+  $form['sobreescribir_titulo'] = array(
+    '#title' => t('Sobreescribir título'),
+    '#type' => 'checkbox',
+    '#default_value' => $form_state['conf']['sobreescribir_titulo'],
+  );
+
   $form['texto'] = array(
     '#title' => t('Contenido'),
     '#type' => 'textfield',
     '#default_value' => $form_state['conf']['texto'],
-    '#required' => TRUE,
+    '#states' => array(
+      'disabled' => array(
+        ':input[name="sobreescribir_titulo"]' => array('checked' => FALSE),
+      ),
+      'required' => array(
+        ':input[name="sobreescribir_titulo"]' => array('checked' => TRUE),
+      )
+    ),
   );
 
   return $form;
@@ -49,20 +63,24 @@ function badistro_bloques_titulo_edit_form_submit($form, &$form_state) {
     }
   }
 }
-
 function badistro_bloques_titulo_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
+  $node = tituloDeNodoDisponible() ? node_load(arg(1)) : '';
   $block->content = theme(
     'badistro_bloques_titulo',
     array(
-      'tag' => theme('html_tag', array('element' => array('#tag' => $conf['tag'], '#attributes' => array('class' => 'activities-sidbar'), '#value' => $conf['texto'],
-      ),
-    )
-  )
+      'tag' => theme('html_tag', array('element' => array('#tag' => $conf['tag'], '#attributes' => array('class' => 'activities-sidbar'), '#value' => tituloDeNodoDisponible() ? $node->title : $conf['texto'],
+          ),
+        )
+      )
     )
   );
   return $block;
+}
+
+function tituloDeNodoDisponible(){
+  return (!$conf['sobreescribir_titulo'] && arg(0) == 'node' && is_numeric(arg(1)));
 }
 
 function badistro_bloques_titulo_admin_info($subtype, $conf, $contexts){
