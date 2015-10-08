@@ -30,12 +30,11 @@ function badistro_cck_image_default_styles() {
   $styles['wide'] = array(
     'label' => 'Wide',
     'effects' => array(
-      1 => array(
-        'name' => 'image_scale',
+      2 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1920,
-          'height' => '',
-          'upscale' => 0,
+          'width' => 2000,
+          'height' => 659,
         ),
         'weight' => 1,
       ),
