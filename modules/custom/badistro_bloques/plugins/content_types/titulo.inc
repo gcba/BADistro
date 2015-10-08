@@ -63,14 +63,15 @@ function badistro_bloques_titulo_edit_form_submit($form, &$form_state) {
     }
   }
 }
+
 function badistro_bloques_titulo_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
-  $node = tituloDeNodoDisponible() ? node_load(arg(1)) : '';
+  $node = tituloDeNodoDisponible($conf['sobreescribir_titulo']) ? node_load(arg(1)) : '';
   $block->content = theme(
     'badistro_bloques_titulo',
     array(
-      'tag' => theme('html_tag', array('element' => array('#tag' => $conf['tag'], '#attributes' => array('class' => 'activities-sidbar'), '#value' => tituloDeNodoDisponible() ? $node->title : $conf['texto'],
+      'tag' => theme('html_tag', array('element' => array('#tag' => $conf['tag'], '#attributes' => array('class' => 'activities-sidbar'), '#value' => tituloDeNodoDisponible($conf['sobreescribir_titulo']) ? $node->title : $conf['texto'],
           ),
         )
       )
@@ -79,8 +80,8 @@ function badistro_bloques_titulo_render($subtype, $conf, $panel_args, $context =
   return $block;
 }
 
-function tituloDeNodoDisponible(){
-  return (!$conf['sobreescribir_titulo'] && arg(0) == 'node' && is_numeric(arg(1)));
+function tituloDeNodoDisponible($sobreescribir){
+  return (!$sobreescribir && arg(0) == 'node' && is_numeric(arg(1)));
 }
 
 function badistro_bloques_titulo_admin_info($subtype, $conf, $contexts){
