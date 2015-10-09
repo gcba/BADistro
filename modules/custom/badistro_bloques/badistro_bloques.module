@@ -9,36 +9,6 @@ function badistro_bloques_ctools_plugin_directory($owner, $plugin_type) {
    }
  }
 
-/*function badistro_bloques_block_info(){
-  return array(
-    'alerta' => array(
-      'info' => t('Alerta'),
-      'cache' => DRUPAL_CACHE_PER_PAGE
-    ),
-    'links' => array(
-      'info' => t('Links'),
-      'cache' => DRUPAL_CACHE_PER_PAGE
-    ),
-    'imagen_destacada' => array(
-      'info' => t('Imagen destacada'),
-      'cache' => DRUPAL_CACHE_PER_PAGE
-    ),
-    'titulo' => array(
-      'info' => t('Título'),
-      'cache' => DRUPAL_CACHE_PER_PAGE
-    ),
-    'texto' => array(
-      'info' => t('Texto'),
-      'cache' => DRUPAL_CACHE_PER_PAGE
-    ),
-    'shortcut' => array(
-      'info' => t('Atajo'),
-      'cache' => DRUPAL_CACHE_PER_PAGE
-    ),
-  );
-}
-*/
-
 function badistro_theme($existing, $type, $theme, $path) {
   return array(
     'badistro_bloques_alerta' => array(
@@ -52,6 +22,10 @@ function badistro_theme($existing, $type, $theme, $path) {
     'badistro_bloques_listado_links' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_listado_links'
+    ),
+    'badistro_bloques_listado_links_con_imagen' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_listado_links_con_imagen'
     ),
     'badistro_bloques_imagen_destacada' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
