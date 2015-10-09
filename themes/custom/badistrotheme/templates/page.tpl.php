@@ -101,6 +101,8 @@ include 'header.php';
       <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
       <a id="main-content"></a>
 
+      <div class="separator-bloque-contenido"></div>
+
       <div class="container">
         <?php print $messages; ?>
         <?php if (!empty($tabs)): ?>

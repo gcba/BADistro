@@ -1,10 +1,60 @@
+/*style BADistro*/
 
-/*pruebas nav menu*/
+html {
+  background-color: #FFF;
+  height: 100%; 
+}
+
+pre {
+  border: 0 none;
+  padding: 0; 
+}
+
+/* Font Config */
+
+
+body, .label, .list-group, .list-group p, .list-group-item-text, .shortcut p, .alert-link p,
+blockquote p, .list-group blockquote p, .jumbotron p, .lead .list-group-item{
+  font-family: "OpenSans", Helvetica, Arial, sans-serif; 
+}
+
+
+b, p strong, span strong, thead > tr > th, .progress-bar, label, dt, .h6, h6 {
+  font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
+  font-weight: normal; 
+}
+
+h4, .h4, h5, .h5, .panel-title, .btn, .input-xl, .navbar-brand {
+  font-family:'Montserrat', sans-serif;
+  letter-spacing: -0.5px; 
+  font-weight: 400;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  font-family: 'Montserrat', sans-serif ;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+a {
+    color: #666666;
+    text-decoration: none;
+}
+
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+
+
+/*nav menu*/
 
 .navbar.transparent .navbar-inner {
        background: rgba(230,230,230,0.97);
        color: #ffffff;
-       padding: 60px 0 0 20px;
+       padding: 5px 0 0 20px;
        font-family:'Montserrat', sans-serif;
     }
 
@@ -68,107 +118,21 @@ body.toolbar .navbar-fixed-top {
     top: 0;
 }
 
-
-/*end pruebas nav menu*/
-
-
-
-
-
-/*style BADistro*/
-
-html {
-  background-color: #FFF;
-  height: 100%; 
-}
-
-pre {
-  border: 0 none;
-  padding: 0; 
-}
-
-/* Font Config */
-
-
-body, .label, .list-group, .list-group p, .list-group-item-text, .shortcut p, .alert-link p,
-blockquote p, .list-group blockquote p, .jumbotron p, .lead .list-group-item{
-  font-family: "OpenSans", Helvetica, Arial, sans-serif; 
-}
-
-
-b, p strong, span strong, thead > tr > th, .progress-bar, label, dt, .h6, h6 {
-  font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
-  font-weight: normal; 
-}
-
-h4, .h4, h5, .h5, .panel-title, .btn, .input-xl, .navbar-brand {
-  font-family:'Montserrat', sans-serif;
-  letter-spacing: -0.5px; 
-  font-weight: 400;
-}
-
-h1, .h1, h2, .h2, h3, .h3 {
-  font-family: 'Montserrat', sans-serif ;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-}
-
-a {
-    color: #666666;
-    text-decoration: none;
-}
-
-.btn {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-}
-
-
-/* Navbar
-.navbar{
-  width: 100%;
-  background-color: #dddddd !important;
-  overflow: hidden;
-  border: none;
-  border:0;
-} 
-.navbar-brand{
-  display: block;
-}
-
-.navbar-default{
-  background-color: #dddddd !important;
-  border:0;
-  border-radius: 0;
-}
-
-.navbar-BADistro{
-  background-color: #dddddd !important;
-  border:0;
-  border-radius: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 20px 10px;
-}
-
 .logo-BADistro{
-  margin: 0;
+  margin: 33px;
   
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
-    text-decoration: none;
-    background-color: #eee;
-    border-radius: 10px;
-    color:#000;
+form.navbar-form.navbar-right{
+  margin: 33px;
 }
 
+/*end nav menu*/
 
-.nav .navbar-nav{
-  margin: 30px 0 0 0;
+/* separador bloque content */
+.panel-panel.panel-panel-full-width.clearfix{
+  margin:32px;
 }
-*/
 
 /* alertas */
 
@@ -233,6 +197,7 @@ a {
     border-color: #3cb5b1;
 }
 /* BOTONES */
+
 .btn-default {
     text-shadow: 0 1px 0 #fff;
     background-image: -webkit-linear-gradient(top, #fff 0%, #e0e0e0 100%);
@@ -340,10 +305,23 @@ a {
 .shortcuts-section p {
   color: #888; }
 
+/*separadores*/
+
 .separator{
 	height: 32px;
 }
 
+.separator-nav{
+  
+}
+
+.separator-top{
+ height: 40px;
+}
+
+.separator-bloque-contenido{
+  height: 150px;
+}
 
 .banner img{
   display: block;
@@ -364,9 +342,8 @@ footer{
   margin-top:3%;
 }
 
-.logo-footer{
-  padding: 3% 1.8%;
-
+.logo-footer {
+    padding: 0 0 0 15px;
 }
 
 footer p{
