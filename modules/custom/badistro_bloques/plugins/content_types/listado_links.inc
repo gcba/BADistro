@@ -98,7 +98,7 @@ function badistro_bloques_listado_links_render($subtype, $conf, $panel_args, $co
   $view = views_get_view('listado_de_contenido');
   $view->set_display('default');
   $view->set_arguments(array($conf["tipos_de_contenido"]));
-  $view->set_items_per_page($conf["cantidad_de_slides"]);
+  $view->set_items_per_page($conf["cantidad_links"]);
   $view->execute();
   foreach ($view->result as $key => $item) {
     $links[] = crearLink($item);
