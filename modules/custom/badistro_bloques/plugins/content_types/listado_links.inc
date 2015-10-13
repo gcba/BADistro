@@ -100,21 +100,37 @@ function badistro_bloques_listado_links_render($subtype, $conf, $panel_args, $co
   $view->set_arguments(array($conf["tipos_de_contenido"]));
   $view->set_items_per_page($conf["cantidad_links"]);
   $view->execute();
-  foreach ($view->result as $key => $item) {
-    $links[] = crearLink($item);
-  }
   $theme = $conf["formato_de_listado"] == 'solo_texto' ? 'badistro_bloques_listado_links' : 'badistro_bloques_listado_links_con_imagen';
-  $block->content = theme($theme, array("titulo" => $conf["titulo"],'links' => $links));
+  foreach ($view->result as $key => $item) {
+    $links[] = crearLink($item, $theme);
+  }
+  $block->content = theme($theme, array("titulo" => $conf["titulo"], 'links' => $links));
   return $block;
 }
-function crearLink($item){
+function crearLink($item, $theme){
   $link = new stdClass();
   $link->id = $item->nid;
   $link->titulo = $item->node_title;
   $link->texto = field_get_items('node', $item->_field_data["nid"]["entity"], 'body', NULL);
   $link->texto = $link->texto[0]["summary"];
   $link->imagen = field_get_items('node', $item->_field_data["nid"]["entity"], 'field_featured_image', NULL);
-  $link->imagen = theme_image_style(array('style_name' => 'list', 'path' => $link->imagen[0]["uri"], 'width' => '', 'height' => ''));
-  $link->imagen = l($link->imagen, 'node/' . $link->id, array('html' => TRUE));
-  return $link;
+  $link->imagen = theme_image_style(array('style_name' => 'list', 'path' => $link->imagen[0]["uri"], 'width' => '', 'height' => '', 'attributes' => array('class' => array('media-object', 'img-rounded'))));
+
+  return l(
+    theme(
+      $theme . '_list_item',
+      array(
+        'titulo' => $link->titulo,
+        'texto' => $link->texto,
+        'imagen' => $link->imagen,
+      )
+    ),
+    'node/' . $link->id,
+    array(
+      'html' => TRUE,
+      'attributes' => array(
+        'class' => array(),
+      )
+    )
+  );
 }

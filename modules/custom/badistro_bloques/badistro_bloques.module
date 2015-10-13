@@ -23,9 +23,17 @@ function badistro_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_listado_links'
     ),
+    'badistro_bloques_listado_links_list_item' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_listado_links_list_item'
+    ),
     'badistro_bloques_listado_links_con_imagen' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_listado_links_con_imagen'
+    ),
+    'badistro_bloques_listado_links_con_imagen_list_item' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_listado_links_con_imagen_list_item'
     ),
     'badistro_bloques_imagen_destacada' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',

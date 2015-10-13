@@ -2,7 +2,7 @@
 <ul class="list-group">
   <?php foreach ($links as $link) { ?>
     <li class="list-group-item">
-      <?php echo l("<h4>" . $link->titulo . "</h4><p>" . $link->texto . "</p>", "node/" . $link->id, array('html' => TRUE)); ?>
+      <?php echo $link; ?>
     </li>
   <?php } ?>
 </ul>
