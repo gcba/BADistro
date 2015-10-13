@@ -272,13 +272,17 @@ form.navbar-form.navbar-right{
 
 .shortcut {
   color: #FFF;
-  margin: 0 auto 24px auto;
+  margin: 0 auto;
   width: 112px;
   height: 112px;
   border-radius: 50%;
   display: block; 
- }
-
+  text-align: center;
+}
+.shortcut .glyphicon{
+  font-size: 3em;
+  top: 28%;
+}
 
 .shortcut-azul {
   background-color: #4265bc;
