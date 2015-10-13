@@ -1,5 +1,4 @@
 <div id="badistro-carousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
   <ol class="carousel-indicators">
     <?php foreach (array_reverse($slides) as $key => $slide) { ?>
     <li data-target="#badistro-carousel" data-slide-to="<?php echo $key; ?>" class="<?php echo $key == 0 ? 'active' : ''; ?>"></li>
@@ -7,7 +6,6 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <?php foreach ($slides as $key => $slide) { ?>
-    <!-- Wrapper for slides -->
       <div class="item <?php echo $key == 0 ? 'active' : ''; ?>">
         <?php echo $slide->imagen; ?>
         <div class="carousel-caption">
@@ -17,13 +15,11 @@
       </div>
     <?php } ?>
   </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#badistro-carousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only"><?php echo t('Anterior'); ?></span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#badistro-carousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only"><?php echo t('Siguiente'); ?></span>
   </a>
