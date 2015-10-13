@@ -1,8 +1,8 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="badistro-carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <?php foreach ($slides as $key => $slide) { ?>
-    <li data-target="#carousel-example-generic" data-slide-to="<?php echo $slide->id; ?>" class="<?php echo $key == 0 ? 'active' : ''; ?>"></li>
+    <?php foreach (array_reverse($slides) as $key => $slide) { ?>
+    <li data-target="#badistro-carousel" data-slide-to="<?php echo $key; ?>" class="<?php echo $key == 0 ? 'active' : ''; ?>"></li>
     <?php } ?>
   </ol>
   <div class="carousel-inner" role="listbox">
