@@ -119,7 +119,7 @@ body.toolbar .navbar-fixed-top {
 }
 
 .logo-BADistro{
-  margin: 33px;
+  margin: 33px 0 0 33px;
   
 }
 
@@ -312,7 +312,7 @@ form.navbar-form.navbar-right{
 }
 
 .separator-nav{
-  
+  height: 80px;
 }
 
 .separator-top{
@@ -320,7 +320,7 @@ form.navbar-form.navbar-right{
 }
 
 .separator-bloque-contenido{
-  height: 150px;
+  height: 120px;
 }
 
 .banner img{
