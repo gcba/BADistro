@@ -13,6 +13,7 @@ $plugin = array(
     'icono' => 'glyphicon-home',
     'titulo' => '',
     'texto' => '',
+    'referencia' => array(),
   )
 );
 
@@ -66,6 +67,14 @@ function badistro_bloques_shortcut_edit_form($form, &$form_state) {
       'glyphicon-heart' => t('Corazón'),
     ),
   );
+  $form['referencia'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Página, trámite o noticia a referenciar'),
+    '#required' => TRUE,
+    '#era_entity_type' => 'node',  // Mandatory.
+    '#era_bundles' => array(), // Optional (Any bundle by default).
+    '#era_cardinality' => 1,       // Optional (1 By default).
+  );
   return $form;
 }
 
@@ -80,8 +89,29 @@ function badistro_bloques_shortcut_edit_form_submit($form, &$form_state) {
   }
 }
 function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context = NULL){
+
   $block = new stdClass();
   $block->title = '';
-  $block->content = theme('badistro_bloques_shortcut', array('color' => $conf['color_fondo'], 'icono' => $conf['icono'], 'texto' => $conf['texto'], 'titulo' => $conf['titulo']));
+  $block->content = l(
+    theme(
+      'badistro_bloques_shortcut',
+      array(
+        'color' => $conf['color_fondo'],
+        'icono' => $conf['icono'],
+        'texto' => $conf['texto'],
+        'titulo' => $conf['titulo']
+      )
+    ),
+    'node/' . $conf['referencia']['entity_id'],
+    array(
+      'html' => TRUE,
+      'attributes' => array(
+        'class' => array(
+          'col-sm-6',
+          'col-md-3'
+        )
+      ),
+    )
+  );
   return $block;
 }
