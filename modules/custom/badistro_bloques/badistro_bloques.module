@@ -19,21 +19,21 @@ function badistro_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_carrousel'
     ),
-    'badistro_bloques_listado_links' => array(
+    'badistro_bloques_listado' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
-      'template' => 'badistro_bloques_listado_links'
+      'template' => 'badistro_bloques_listado'
     ),
-    'badistro_bloques_listado_links_list_item' => array(
+    'badistro_bloques_listado_item' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
-      'template' => 'badistro_bloques_listado_links_list_item'
+      'template' => 'badistro_bloques_listado_item'
     ),
-    'badistro_bloques_listado_links_con_imagen' => array(
+    'badistro_bloques_listado_con_imagen' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
-      'template' => 'badistro_bloques_listado_links_con_imagen'
+      'template' => 'badistro_bloques_listado_con_imagen'
     ),
-    'badistro_bloques_listado_links_con_imagen_list_item' => array(
+    'badistro_bloques_listado_con_imagen_item' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
-      'template' => 'badistro_bloques_listado_links_con_imagen_list_item'
+      'template' => 'badistro_bloques_listado_con_imagen_item'
     ),
     'badistro_bloques_imagen_destacada' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',

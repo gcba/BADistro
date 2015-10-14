@@ -5,9 +5,9 @@ $plugin = array(
   'title' => t('Listado de links'),
   'description' => t('Crea un listado de links'),
   'category' => t('BA Distro'),
-  'render callback' => 'badistro_bloques_listado_links_render',
-  'edit form' => 'badistro_bloques_listado_links_edit_form',
-  'admin info' => 'badistro_bloques_listado_links_admin_info',
+  'render callback' => 'badistro_bloques_listado_render',
+  'edit form' => 'badistro_bloques_listado_edit_form',
+  'admin info' => 'badistro_bloques_listado_admin_info',
   'defaults' => array(
     'cantidad_links' => 5,
     'tipo_de_listado' => 'recientes',
@@ -20,7 +20,7 @@ $plugin = array(
 /**
 * 'admin info' callback for panel pane.
 */
-function badistro_bloques_listado_links_admin_info($subtype, $conf, $contexts) {
+function badistro_bloques_listado_admin_info($subtype, $conf, $contexts) {
   if (!empty($conf)) {
     $block = new stdClass;
     $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Listado');
@@ -32,7 +32,7 @@ function badistro_bloques_listado_links_admin_info($subtype, $conf, $contexts) {
 /**
 * 'Edit form' callback for the content type.
 */
-function badistro_bloques_listado_links_edit_form($form, &$form_state) {
+function badistro_bloques_listado_edit_form($form, &$form_state) {
 
   foreach (node_type_get_types() as $item) {
     $tiposDeContenido[$item->type] = $item->name;
@@ -85,14 +85,14 @@ function badistro_bloques_listado_links_edit_form($form, &$form_state) {
 /**
 * The submit form stores the data in $conf.
 */
-function badistro_bloques_listado_links_edit_form_submit($form, &$form_state) {
+function badistro_bloques_listado_edit_form_submit($form, &$form_state) {
   foreach (array_keys($form_state['plugin']['defaults']) as $key) {
     if (isset($form_state['values'][$key])) {
       $form_state['conf'][$key] = $form_state['values'][$key];
     }
   }
 }
-function badistro_bloques_listado_links_render($subtype, $conf, $panel_args, $context = NULL){
+function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
@@ -100,7 +100,7 @@ function badistro_bloques_listado_links_render($subtype, $conf, $panel_args, $co
   $view->set_arguments(array($conf["tipos_de_contenido"]));
   $view->set_items_per_page($conf["cantidad_links"]);
   $view->execute();
-  $theme = $conf["formato_de_listado"] == 'solo_texto' ? 'badistro_bloques_listado_links' : 'badistro_bloques_listado_links_con_imagen';
+  $theme = $conf["formato_de_listado"] == 'solo_texto' ? 'badistro_bloques_listado' : 'badistro_bloques_listado_con_imagen';
   foreach ($view->result as $key => $item) {
     $links[] = crearLink($item, $theme);
   }
@@ -118,7 +118,7 @@ function crearLink($item, $theme){
 
   return l(
     theme(
-      $theme . '_list_item',
+      $theme . '_item',
       array(
         'titulo' => $link->titulo,
         'texto' => $link->texto,
