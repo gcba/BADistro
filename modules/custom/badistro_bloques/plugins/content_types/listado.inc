@@ -121,7 +121,15 @@ function crearLink($item, $theme){
       $theme . '_item',
       array(
         'titulo' => $link->titulo,
-        'texto' => $link->texto,
+        'texto' => views_trim_text(
+          array(
+            'max_length' => 90,
+            'ellipsis' => TRUE,
+            'word_boundary' => TRUE,
+            'html' => TRUE,
+          ),
+          $link->texto
+        ),
         'imagen' => $link->imagen,
       )
     ),
