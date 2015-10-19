@@ -26,6 +26,21 @@ function badistro_cck_views_api($module = NULL, $api = NULL) {
 function badistro_cck_image_default_styles() {
   $styles = array();
 
+  // Exported image style: list.
+  $styles['list'] = array(
+    'label' => 'List',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 100,
+          'height' => 80,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: wide.
   $styles['wide'] = array(
     'label' => 'Wide',
