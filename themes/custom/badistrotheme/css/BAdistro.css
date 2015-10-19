@@ -131,7 +131,7 @@ form.navbar-form.navbar-right{
 
 /* separador bloque content */
 .panel-panel.panel-panel-full-width.clearfix{
-  margin:32px;
+  margin-bottom:32px;
 }
 
 /* alertas */
@@ -210,11 +210,6 @@ form.navbar-form.navbar-right{
     border-color: #dbdbdb;
     border-color: #ccc;
 }
-
-
-
-
-
 
 
 /* Listas */
