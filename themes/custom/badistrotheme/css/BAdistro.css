@@ -443,4 +443,101 @@ footer .links-rel li:nth-child(1){
     margin-top: 10px;
 }
 
+/*JUMBOTRON TRAMITES */
 
+.jumbotron {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: #eee;
+    height: 300px;
+}
+
+
+.jumbotron-misc {
+    background-image: url(http://gcba.github.io/BAstrap/docs/misc.jpg);
+    -ms-behavior: url(bastrap3/backgroundsize.min.htc);
+    background-size: cover;
+}
+
+.jumbo-tramites{
+  font-family: "OpenSans", Helvetica, Arial, sans-serif; 
+  color:#FFF;
+  font-size: 14px;
+  padding-left: 3%;
+  
+}
+
+.jumbo-tramites-title{
+  font-family:'Montserrat', sans-serif;
+  color:#FFF;
+  padding-left: 3%;
+  margin-top:5%;
+  
+}
+
+
+.panel.panel-default.panel-tramites {
+    border:none; 
+}
+
+/* colores span */
+
+.docs-colores {
+   
+}
+
+.docs-colores span {
+    color: #fff;
+    text-align: center;
+    
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding-top: 25px;
+    display: block;
+    
+}
+
+.bg-primary-dk {
+    background-color: #4265bc;
+}
+
+.bg-danger-dk {
+    background-color: #d13f34;
+}
+
+.bg-warning-dk {
+    background-color: #ff9624;
+}
+
+.bg-success-dk {
+    background-color: #3cb5b1;
+}
+
+.bg-default-dk {
+    background-color: #888888;
+}
+
+.bg-info-dk {
+    background-color: #4265bc;
+}
+
+.docs-colores .glyphicon-tramites{
+    left: 18px;
+    top: -10px;
+    font-size: 2em;
+    bottom: 20px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+  
+}
+
+.separator-tramites{
+  height: 5px;
+}
