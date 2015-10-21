@@ -46,6 +46,32 @@
                           <div class="panel panel-default panel-tramites">
                             <div class="panel-body">
                                 <div class="docs-colores">
+                                    <span class="bg-success-dk">
+                                      
+                                            <span class="glyphicon-tramites glyphicon glyphicon-list-alt"></span>
+
+
+                                    </span>
+                                    
+                                </div>
+                                      <h3>Licencias</h3>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        Suspendisse felis ipsum, placerat ac mollis vitae, ultricies vel sem. 
+                                        Sed sit amet lacus non velit facilisis ultrices. Quisque semper, elit a rutrum sodales, 
+                                        velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
+                                        <button type="submit" class="btn btn-default">ver trámite</button>
+
+                                        
+
+                                        
+
+                            </div>
+                          </div>
+
+
+                          <div class="panel panel-default panel-tramites">
+                            <div class="panel-body">
+                                <div class="docs-colores">
                                     <span class="bg-warning-dk">
                                       
                                             <span class="glyphicon-tramites glyphicon glyphicon-list-alt"></span>
@@ -61,24 +87,9 @@
                                         velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
                                         <button type="submit" class="btn btn-default">ver trámite</button>
 
-                                        <h3>Licencia de conducir</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                        Suspendisse felis ipsum, placerat ac mollis vitae, ultricies vel sem. 
-                                        Sed sit amet lacus non velit facilisis ultrices. Quisque semper, elit a rutrum sodales, 
-                                        velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
-                                        <button type="submit" class="btn btn-default">ver trámite</button>
+                                        
 
-                                        <h3>Licencias varias</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                        Suspendisse felis ipsum, placerat ac mollis vitae, ultricies vel sem. 
-                                        Sed sit amet lacus non velit facilisis ultrices. Quisque semper, elit a rutrum sodales, 
-                                        velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
-                                        <button type="submit" class="btn btn-default">ver trámite</button>
-
-
-                                        <div class="separator"></div>
-                                        <button type="submit" class="btn btn-info btn-lg">ver todos los trámites online</button>
-
+                                        
 
                             </div>
                           </div>
@@ -90,7 +101,7 @@
                               
 
 
-                                      <div class="panel panel-default panel-tramites">
+                            <div class="panel panel-default panel-tramites">
                             <div class="panel-body">
                                 <div class="docs-colores">
                                     <span class="bg-primary-dk">
@@ -107,31 +118,39 @@
                                         velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
                                         <button type="submit" class="btn btn-default">ver trámite</button>
 
-                                       <h3>Pago de infracciones online</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                      
+
+
+                                        
+
+                              </div>
+                              </div>
+
+
+                              <div class="panel panel-default panel-tramites">
+                            <div class="panel-body">
+                                <div class="docs-colores">
+                                    <span class="bg-info-dk">
+                                      
+                                                  <span class="glyphicon-tramites glyphicon glyphicon-cloud"></span>
+
+                                    </span>
+                                    
+                                </div>
+                                      <h3>Libre deuda de Infracciones</h3>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                         Suspendisse felis ipsum, placerat ac mollis vitae, ultricies vel sem. 
                                         Sed sit amet lacus non velit facilisis ultrices. Quisque semper, elit a rutrum sodales, 
                                         velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
                                         <button type="submit" class="btn btn-default">ver trámite</button>
 
-
-                                        <h3>Infracciones</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                        Suspendisse felis ipsum, placerat ac mollis vitae, ultricies vel sem. 
-                                        Sed sit amet lacus non velit facilisis ultrices. Quisque semper, elit a rutrum sodales, 
-                                        velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
-                                        <button type="submit" class="btn btn-default">ver trámite</button>
+                                      
 
 
-                                        <div class="separator"></div>
-                                        <button type="submit" class="btn btn-info btn-lg">ver todos los trámites online</button>
+                                        
 
-
-                            </div>
-                          </div>
-
-
-
+                              </div>
+                              </div>
 
 
 
@@ -145,7 +164,7 @@
 
 
                               <div class="panel panel-default panel-tramites">
-                            <div class="panel-body">
+                              <div class="panel-body">
                                 <div class="docs-colores">
                                     <span class="bg-danger-dk">
                                       
@@ -161,23 +180,43 @@
                                         velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
                                         <button type="submit" class="btn btn-default">ver trámite</button>
 
-                                        <h3>DNI cambio de domicilio</h3>
+                        
+
+
+                                        
+                              </div>
+
+
+                              </div>
+
+
+
+
+                            <div class="panel panel-default panel-tramites">
+                              <div class="panel-body">
+                                <div class="docs-colores">
+                                    <span class="bg-default-dk">
+                                      
+                                            <span class="glyphicon-tramites glyphicon glyphicon-calendar"></span>
+
+                                    </span>
+                                    
+                                </div>
+                                      <h3>DNI</h3>
                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                         Suspendisse felis ipsum, placerat ac mollis vitae, ultricies vel sem. 
                                         Sed sit amet lacus non velit facilisis ultrices. Quisque semper, elit a rutrum sodales, 
                                         velit turpis malesuada erat, nec efficitur ligula ligula quis mi.</p>
                                         <button type="submit" class="btn btn-default">ver trámite</button>
 
-
-                                        <div class="separator"></div>
-                                        <button type="submit" class="btn btn-info btn-lg">ver todos los trámites online</button>
-
-                            </div>
+                        
 
 
-                          </div>
+                                        
+                              </div>
 
 
+                              </div>
                              
                 </div>
 
