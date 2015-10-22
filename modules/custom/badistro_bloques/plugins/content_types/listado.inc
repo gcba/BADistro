@@ -13,7 +13,11 @@ $plugin = array(
     'tipo_de_listado' => 'recientes',
     'tipos_de_contenido' => 'noticia',
     'formato_de_listado' => 'solo_texto',
-    'titulo' => t('Listado')
+    'titulo' => t('Listado'),
+    'icono' => 'glyphicon-paperclip',
+    'tipo_noticia' => 'all',
+    'tipo_tramite' => 'all',
+    'orientacion_de_listado' => 'vertical'
   )
 );
 
@@ -43,6 +47,13 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
     '#default_value' => $form_state['conf']['titulo'],
     '#required' => TRUE,
   );
+  $form['cantidad_links'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cantidad'),
+    '#default_value' => $form_state['conf']['cantidad_links'],
+    '#element_validate' => array('element_validate_integer_positive'), 
+    '#description' => t('Cantidad máxima de items del listado'),
+  );
   $form['tipos_de_contenido'] = array(
     '#title' => t('Tipo de contenido'),
     '#type' => 'radios',
@@ -51,12 +62,40 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
     '#options' => $tiposDeContenido,
     '#description' => t('Tipo de contenido a listar'),
   );
+  $form['tipo_tramite'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Tipo de Trámites'),
+    '#description' => t('Filtrar por tipo de trámite. Dejar vacío para listar todos los trámites'),
+    '#required' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="tipos_de_contenido"]' => array('value' => 'tramite'),
+      ),
+    ),
+    '#era_entity_type' => 'taxonomy_term',  // Mandatory.
+    '#era_bundles' => array('tramites'), // Optional (Any bundle by default).
+    '#era_cardinality' => 2,       // Optional (1 By default).
+  );
+  $form['tipo_noticia'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Categoría de Noticias'),
+    '#description' => t('Filtrar por categoría de noticias. Dejar vacío para listar todos los noticias'),
+    '#required' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="tipos_de_contenido"]' => array('value' => 'noticia'),
+      ),
+    ),
+    '#era_entity_type' => 'taxonomy_term',  // Mandatory.
+    '#era_bundles' => array('noticias'), // Optional (Any bundle by default).
+    '#era_cardinality' => 1,       // Optional (1 By default).
+  );
   $form['tipo_de_listado'] = array(
     '#type' => 'select',
     '#title' => t('Tipo de listado'),
+    '#disabled' => TRUE,
     '#options' => array(
       'recientes' => t('Recientes'),
-      'mas_visitados' => t('Más visitados'),
     ),
     '#default_value' => $form_state['conf']['tipo_de_listado'],
     '#description' => t('Cada tipo de listado tiene un comportamiento diferente'),
@@ -65,18 +104,39 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
     '#type' => 'select',
     '#title' => t('Formato de listado'),
     '#options' => array(
-      'solo_texto' => t('Sólo texto'),
-      'con_imagen' => t('Imagen y texto'),
+      'badistro_bloques_listado' => t('Sólo texto'),
+      'badistro_bloques_listado_con_imagen' => t('Imagen y texto'),
+      'badistro_bloques_listado_destacado' => t('Destacado'),
     ),
     '#default_value' => $form_state['conf']['formato_de_listado'],
     '#description' => t('Cada tipo de listado tiene un comportamiento diferente'),
   );
-  $form['cantidad_links'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Cantidad'),
-    '#default_value' => $form_state['conf']['cantidad_links'],
-    '#element_validate' => array('element_validate_integer_positive'), 
-    '#description' => t('Cantidad máxima de items del listado'),
+  $form['orientacion_de_listado'] = array(
+    '#title' => t('Orientación'),
+    '#type' => 'radios',
+    '#default_value' => $form_state['conf']['orientacion_de_listado'],
+    '#required' => TRUE,
+    '#options' => array(
+      'vertical' => t("Vertical"),
+      'horizontal' => t("Horizontal")
+    ),
+    '#description' => t('Tipo de contenido a listar'),
+  );
+  $form['icono'] = array(
+    '#title' => t('Ícono'),
+    '#type' => 'select',
+    '#default_value' => $form_state['conf']['icono'],
+    '#options' => array(
+      'glyphicon-home' => t('Casa'),
+      'glyphicon-paperclip' => t('Clip'),
+      'glyphicon-star' => t('Estrella'),
+      'glyphicon-heart' => t('Corazón'),
+    ),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="formato_de_listado"]' => array('value' => 'badistro_bloques_listado_destacado'),
+      ),
+    ),
   );
 
   return $form;
@@ -97,14 +157,19 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
   $view->set_display('default');
-  $view->set_arguments(array($conf["tipos_de_contenido"]));
+  $view->set_arguments(
+    array(
+      $conf["tipos_de_contenido"],
+      isset($conf['tipo_noticia']) && isset($conf['tipo_noticia']['entity_id']) ? $conf['tipo_noticia']['entity_id'] : 'all',
+      isset($conf['tipo_tramite']) && isset($conf['tipo_tramite']['entity_id']) ? $conf['tipo_tramite']['entity_id'] : 'all',
+    )
+  );
   $view->set_items_per_page($conf["cantidad_links"]);
   $view->execute();
-  $theme = $conf["formato_de_listado"] == 'solo_texto' ? 'badistro_bloques_listado' : 'badistro_bloques_listado_con_imagen';
   foreach ($view->result as $key => $item) {
-    $links[] = crearLink($item, $theme);
+    $links[] = crearLink($item, $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"]);
   }
-  $block->content = theme($theme, array("titulo" => $conf["titulo"], 'links' => $links));
+  $block->content = theme($conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"], array("titulo" => $conf["titulo"], 'links' => $links));
   return $block;
 }
 function crearLink($item, $theme){
@@ -115,6 +180,10 @@ function crearLink($item, $theme){
   $link->texto = $link->texto[0]["summary"];
   $link->imagen = field_get_items('node', $item->_field_data["nid"]["entity"], 'field_featured_image', NULL);
   $link->imagen = theme_image_style(array('style_name' => 'list', 'path' => $link->imagen[0]["uri"], 'width' => '', 'height' => '', 'attributes' => array('class' => array('media-object', 'img-rounded'))));
+  $link->type = $item->_field_data["nid"]["entity"]->type;
+  $link->category = $link->type == 'tramite' ? field_get_items('node', $item->_field_data["nid"]["entity"], 'field_tramite_tipo', NULL) : '';
+  $link->category = taxonomy_term_load($link->category[0]["target_id"]);
+  $link->category = l($link->category->name, 'taxonomy/term/' . $link->category->tid);
 
   return l(
     theme(
