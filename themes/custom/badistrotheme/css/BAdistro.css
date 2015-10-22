@@ -257,8 +257,17 @@ form.navbar-form.navbar-right{
   border-radius: 10px;
 }
 
+.media-left.media-middle{
+  float:left !important;
+}
 
+.media-heading{
+  margin-left:7px !important;
+}
 
+.media-heading h4, p{
+  margin-left:7px !important;
+}
 /*shotcuts*/
 .shortcuts-section {
   margin:15px 0;
@@ -443,7 +452,11 @@ footer .links-rel li:nth-child(1){
     margin-top: 10px;
 }
 
-/*JUMBOTRON TRAMITES */
+/* JUMBOTRON */
+
+
+
+/*JUMBOTRON */
 
 .jumbotron {
     padding: 30px;
@@ -463,7 +476,7 @@ footer .links-rel li:nth-child(1){
     background-size: cover;
 }
 
-.jumbo-tramites{
+.jumbo-idestacada{
   font-family: "OpenSans", Helvetica, Arial, sans-serif; 
   color:#FFF;
   font-size: 14px;
@@ -471,7 +484,7 @@ footer .links-rel li:nth-child(1){
   
 }
 
-.jumbo-tramites-title{
+.jumbo-idestacada-title{
   font-family:'Montserrat', sans-serif;
   color:#FFF;
   padding-left: 3%;
@@ -483,6 +496,10 @@ footer .links-rel li:nth-child(1){
 .panel.panel-default.panel-tramites {
     border:none; 
 }
+
+/* galeria noticias */
+
+
 
 /* colores span */
 
