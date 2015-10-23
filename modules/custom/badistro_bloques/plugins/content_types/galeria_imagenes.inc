@@ -55,7 +55,39 @@ function badistro_bloques_galeria_imagenes_edit_form_submit($form, &$form_state)
 function badistro_bloques_galeria_imagenes_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
-  $imagenes = [];
-  $block->content = theme('badistro_bloques_galeria_imagenes', array('imagenes' => $imagenes));
+
+  if(arg(0) == 'node' && is_numeric(arg(1))){
+    $node = node_load(arg(1));
+    if(isset($node->field_imagenes) && !empty($node->field_imagenes)){
+      foreach (field_get_items('node', $node, 'field_imagenes', NULL) as $key => $imagen) {
+        $imagenes[$key]['thumb'] = theme_image_style(
+          array(
+            'style_name' => 'gallery_thumb',
+            'path' => $imagen['uri'],
+            'width' => '',
+            'height' => '',
+            'attributes' => array(
+              'data-toggle' => "modal",
+              'data-target' => ".badistro-bloques-galeria-imagenes-" . $key
+            )
+          )
+        );
+        $imagenes[$key]['original'] = theme_image_style(
+          array(
+            'style_name' => 'original',
+            'path' => $imagen['uri'],
+            'width' => '',
+            'height' => '',
+            'attributes' => array()
+          )
+        );
+      }
+      $block->content = theme('badistro_bloques_galeria_imagenes_' . $conf['tipo'], array('imagenes' => $imagenes));
+    } else {
+      $block->content = '';
+    }
+  } else {
+    $block->content = '';
+  }
   return $block;
 }
