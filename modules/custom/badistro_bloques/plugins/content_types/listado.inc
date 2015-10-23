@@ -153,7 +153,6 @@ function badistro_bloques_listado_edit_form_submit($form, &$form_state) {
   }
 }
 function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context = NULL){
-  var_dump($conf);
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
