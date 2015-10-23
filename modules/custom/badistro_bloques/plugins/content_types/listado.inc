@@ -153,6 +153,7 @@ function badistro_bloques_listado_edit_form_submit($form, &$form_state) {
   }
 }
 function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context = NULL){
+  var_dump($conf);
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
@@ -167,12 +168,19 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
   $view->set_items_per_page($conf["cantidad_links"]);
   $view->execute();
   foreach ($view->result as $key => $item) {
-    $links[] = crearLink($item, $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"]);
+    $links[] = crearLink($item, $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"], $conf);
   }
-  $block->content = theme($conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"], array("titulo" => $conf["titulo"], 'links' => $links));
+  $block->content = theme(
+    $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"],
+    array(
+      "titulo" => $conf["titulo"],
+      'links' => $links,
+      'icono' => $conf['icono'],
+    )
+  );
   return $block;
 }
-function crearLink($item, $theme){
+function crearLink($item, $theme, $conf = NULL){
   $link = new stdClass();
   $link->id = $item->nid;
   $link->texto = field_get_items('node', $item->_field_data["nid"]["entity"], 'body', NULL);
@@ -199,6 +207,7 @@ function crearLink($item, $theme){
           $link->texto
         ),
         'imagen' => $link->imagen,
+        'icono' => $conf['icono']
       )
     ),
     'node/' . $item->nid,
