@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-tramites col-md-4 col-sm-4">
+<div class="panel panel-default panel-tramites">
   <div class="panel-body">
     <div class="docs-colores">
       <span class="bg-success-dk">

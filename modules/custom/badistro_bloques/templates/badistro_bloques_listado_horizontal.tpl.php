@@ -1,9 +1,13 @@
-<h2><?php echo $titulo; ?></h2>
+<h2 class="text-left"><?php echo $titulo; ?></h2>
 <ul class="list-group">
-  <?php foreach ($links as $link) { ?>
-    <li class="list-group-item">
-      <?php echo $link; ?>
-    </li>
-  <?php } ?>
-</ul>
+<?php foreach (array_chunk($links, 3) as $key => $row) { ?>
+    <div class="clearfix">
+    <?php foreach ($row as $item) { ?>
+      <li class="list-group-item col-md-4 col-sm-4">
+        <?php echo $item; ?>
+      </li>
+    <?php } ?>
+    </div>
+    <?php } ?>
+ </ul>
 <button type="button" class="btn btn-default btn-lg btn-block">Ver todos trámites</button>
