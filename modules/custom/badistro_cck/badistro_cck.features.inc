@@ -26,6 +26,21 @@ function badistro_cck_views_api($module = NULL, $api = NULL) {
 function badistro_cck_image_default_styles() {
   $styles = array();
 
+  // Exported image style: gallery_thumb.
+  $styles['gallery_thumb'] = array(
+    'label' => 'Gallery Thumb',
+    'effects' => array(
+      5 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 525,
+          'height' => 426,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: list.
   $styles['list'] = array(
     'label' => 'List',
@@ -33,8 +48,24 @@ function badistro_cck_image_default_styles() {
       3 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 100,
-          'height' => 80,
+          'width' => 130,
+          'height' => 100,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: original.
+  $styles['original'] = array(
+    'label' => 'Original',
+    'effects' => array(
+      7 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1920,
+          'height' => '',
+          'upscale' => 0,
         ),
         'weight' => 1,
       ),
