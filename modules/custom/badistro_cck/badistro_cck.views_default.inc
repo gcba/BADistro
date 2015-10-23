@@ -81,6 +81,22 @@ function badistro_cck_views_default_views() {
   $handler->display->display_options['arguments']['type']['field'] = 'type';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+  /* Contextual filter: Content: Categoría (field_categoria) */
+  $handler->display->display_options['arguments']['field_categoria_target_id']['id'] = 'field_categoria_target_id';
+  $handler->display->display_options['arguments']['field_categoria_target_id']['table'] = 'field_data_field_categoria';
+  $handler->display->display_options['arguments']['field_categoria_target_id']['field'] = 'field_categoria_target_id';
+  $handler->display->display_options['arguments']['field_categoria_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_categoria_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_categoria_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_categoria_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Tipo de Trámite (field_tramite_tipo) */
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['id'] = 'field_tramite_tipo_target_id';
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['table'] = 'field_data_field_tramite_tipo';
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['field'] = 'field_tramite_tipo_target_id';
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_tramite_tipo_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
