@@ -175,21 +175,20 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
 function crearLink($item, $theme){
   $link = new stdClass();
   $link->id = $item->nid;
-  $link->titulo = $item->node_title;
   $link->texto = field_get_items('node', $item->_field_data["nid"]["entity"], 'body', NULL);
   $link->texto = $link->texto[0]["summary"];
   $link->imagen = field_get_items('node', $item->_field_data["nid"]["entity"], 'field_featured_image', NULL);
   $link->imagen = theme_image_style(array('style_name' => 'list', 'path' => $link->imagen[0]["uri"], 'width' => '', 'height' => '', 'attributes' => array('class' => array('media-object', 'img-rounded'))));
   $link->type = $item->_field_data["nid"]["entity"]->type;
-  $link->category = $link->type == 'tramite' ? field_get_items('node', $item->_field_data["nid"]["entity"], 'field_tramite_tipo', NULL) : '';
-  $link->category = taxonomy_term_load($link->category[0]["target_id"]);
-  $link->category = l($link->category->name, 'taxonomy/term/' . $link->category->tid);
+  $link->category = isset($item->_field_data["nid"]["entity"]) && $link->type == 'tramite' ? field_get_items('node', $item->_field_data["nid"]["entity"], 'field_tramite_tipo', NULL) : NULL;
+  $link->category = isset($link->category) ? taxonomy_term_load($link->category[0]["target_id"]) : NULL;
+  $link->category = isset($link->category) ? l($link->category->name, 'taxonomy/term/' . $link->category->tid) : NULL;
 
   return l(
     theme(
       $theme . '_item',
       array(
-        'titulo' => $link->titulo,
+        'titulo' => $item->node_title,
         'texto' => views_trim_text(
           array(
             'max_length' => 90,
@@ -202,7 +201,7 @@ function crearLink($item, $theme){
         'imagen' => $link->imagen,
       )
     ),
-    'node/' . $link->id,
+    'node/' . $item->nid,
     array(
       'html' => TRUE,
       'attributes' => array(
