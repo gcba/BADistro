@@ -2,8 +2,8 @@
 
 $plugin = array(
   'single' => TRUE,
-  'title' => t('Listado de links'),
-  'description' => t('Crea un listado de links'),
+  'title' => t('Listado'),
+  'description' => t('Crea un listado de contenido configurable'),
   'category' => t('BA Distro'),
   'render callback' => 'badistro_bloques_listado_render',
   'edit form' => 'badistro_bloques_listado_edit_form',
