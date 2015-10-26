@@ -1,8 +1,11 @@
-<div class="clearfix panel-layout-columna-main" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+<div class="clearfix panel-layout-columna-sidebar" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+	<div class="panel-panel-full-width clearfix">
+    <?php print $content['full']; ?>
+  </div>
 	<!-- Top content -->
-	<div class="panel-panel clearfix">
-		<div><?php print $content['top']; ?></div>
-	</div>
+	<div class="col-md-12">
+  	<?php print $content['top']; ?>
+  </div>
 	<!-- Sidebar content -->
 	<div class="col-md-4 col-sm-4 col-xs-12">
 		<!-- <nav> ? -->

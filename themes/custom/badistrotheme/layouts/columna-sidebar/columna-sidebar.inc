@@ -12,6 +12,7 @@ $plugin = array(
   	'bottom' => t('Bottom'), 
   	'sidebar' => t('Sidebar'),
     'column'  => t('Content'),
+    'full'  => t('Ancho máximo'),
   ),
 
 );
