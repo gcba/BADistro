@@ -175,6 +175,28 @@ function badistro_cck_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_imagenes'
+  $field_bases['field_imagenes'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_imagenes',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'image',
+    'settings' => array(
+      'default_image' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'image',
+  );
+
   // Exported field_base: 'field_links_relacionados'
   $field_bases['field_links_relacionados'] = array(
     'active' => 1,
