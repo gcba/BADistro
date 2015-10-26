@@ -81,8 +81,19 @@ function badistro_bloques_galeria_imagenes_render($subtype, $conf, $panel_args, 
             'attributes' => array()
           )
         );
+        $imagenes[$key]['render'] = theme(
+          'badistro_bloques_galeria_imagenes_' . $conf['tipo'] . '_item',
+          array(
+            "thumb" => $imagenes[$key]['thumb'],
+            "original" => $imagenes[$key]['original'],
+            "key" => $key
+          )
+        );
       }
-      $block->content = theme('badistro_bloques_galeria_imagenes_' . $conf['tipo'], array('imagenes' => $imagenes));
+      $block->content = theme(
+        'badistro_bloques_galeria_imagenes_' . $conf['tipo'],
+        array('imagenes' => $imagenes)
+      );
     } else {
       $block->content = '';
     }
