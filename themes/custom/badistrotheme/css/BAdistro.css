@@ -499,7 +499,9 @@ footer .links-rel li:nth-child(1){
 
 /* galeria noticias */
 
-
+.modal-content img {
+max-width: 100%;
+}
 
 /* colores span */
 
