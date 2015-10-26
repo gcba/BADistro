@@ -459,21 +459,30 @@ footer .links-rel li:nth-child(1){
 /*JUMBOTRON */
 
 .jumbotron {
-    padding: 30px;
+    padding: 0px;
     margin-bottom: 30px;
     font-size: 21px;
     font-weight: 200;
     line-height: 2.1428571435;
     color: inherit;
     background-color: #eee;
-    height: 300px;
+    /*height: 300px;*/
 }
 
 
 .jumbotron-misc {
-    background-image: url(http://gcba.github.io/BAstrap/docs/misc.jpg);
-    -ms-behavior: url(bastrap3/backgroundsize.min.htc);
-    background-size: cover;
+    /*background-image: url(http://gcba.github.io/BAstrap/docs/misc.jpg);*/
+    /*-ms-behavior: url(bastrap3/backgroundsize.min.htc);*/
+    /*background-size: cover;*/
+}
+.panel-pane.pane-imagen-destacada .jumbotron {
+    position: relative;
+}
+.panel-pane.pane-imagen-destacada .jumbotron-data {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    width: 100%;
 }
 
 .jumbo-idestacada{
