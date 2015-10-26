@@ -26,6 +26,21 @@ function badistro_cck_views_api($module = NULL, $api = NULL) {
 function badistro_cck_image_default_styles() {
   $styles = array();
 
+  // Exported image style: gallery_large.
+  $styles['gallery_large'] = array(
+    'label' => 'Gallery Large',
+    'effects' => array(
+      6 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 750,
+          'height' => 350,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: gallery_thumb.
   $styles['gallery_thumb'] = array(
     'label' => 'Gallery Thumb',
@@ -35,6 +50,22 @@ function badistro_cck_image_default_styles() {
         'data' => array(
           'width' => 525,
           'height' => 426,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: imagen_destacada.
+  $styles['imagen_destacada'] = array(
+    'label' => 'Imagen destacada',
+    'effects' => array(
+      8 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 300,
+          'upscale' => 0,
         ),
         'weight' => 1,
       ),
