@@ -18,62 +18,39 @@ $plugin = array(
 function badistro_bloques_imagen_destacada_admin_info($subtype, $conf, $contexts) {
   if (!empty($conf)) {
     $block = new stdClass;
-    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Alerta');
-    $block->content = t('Alerta tipo @tipo.', array('@tipo' => $conf['tipo']));
+    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Imagen destacada');
+    $block->content = t('Imagen destacada.');
     return $block;
   }
 }
-
-/**
-* 'Edit form' callback for the content type.
-*/
-/*function badistro_bloques_imagen_destacada_edit_form($form, &$form_state) {
-
-  $form['tipo'] = array(
-    '#title' => t('Tipo de alerta'),
-    '#type' => 'select',
-    '#default_value' => $form_state['conf']['tipo'],
-    '#options' => array(
-      'success' => t('Success'),
-      'info' => t('Info'),
-      'warning' => t('Warning'),
-      'danger' => t('Danger')
-    ),
-  );
-
-  $form['texto'] = array(
-    '#title' => t('Contenido'),
-    '#type' => 'text_format',
-    '#format' => 'full_html',
-    '#default_value' => $form_state['conf']['texto']['value'],
-    '#required' => TRUE,
-  );
-
-  return $form;
-}*/
-
-/**
-* The submit form stores the data in $conf.
-*/
-/*function badistro_bloques_imagen_destacada_edit_form_submit($form, &$form_state) {
-  foreach (array_keys($form_state['plugin']['defaults']) as $key) {
-    if (isset($form_state['values'][$key])) {
-      $form_state['conf'][$key] = $form_state['values'][$key];
-    }
-  }
-}*/
 function badistro_bloques_imagen_destacada_render($subtype, $conf, $panel_args, $context = NULL){
-  
+  $block = new stdClass();
+  $block->title = '';
   if(arg(0) == 'node' && is_numeric(arg(1))){
-    
     $node = node_load(arg(1));
-
-    $imagen = field_get_items('node', $node, 'field_featured_image', $langcode = NULL);
-    $imagen = isset($imagen[0]) ? theme_image_style(array('style_name' => 'large', 'path' => $imagen[0]["uri"])) : NULL;
-
-    $block = new stdClass();
-    $block->title = '';
-    $block->content = $imagen;
+    if(isset($node->field_featured_image) && !empty($node->field_featured_image)){
+      $imagen = field_get_items('node', $node, 'field_featured_image', NULL);
+      $texto = field_get_items('node', $node, 'body', NULL);
+      $block->content = theme(
+        'badistro_bloques_imagen_destacada', array(
+          'imagen' => theme_image_style(
+            array(
+              'style_name' => 'imagen_destacada',
+              'path' => $imagen[0]['uri'],
+              'width' => '',
+              'height' => '',
+              'attributes' => array()
+            )
+        ),
+        'titulo' => $node->title,
+        'texto' => $texto[0]['summary']
+      )
+    );
+  } else {
+      $block->content = '';
+    }
+  } else {
+    $block->content = '';
   }
 
   return $block;
