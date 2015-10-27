@@ -93,9 +93,9 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
   $form['tipo_de_listado'] = array(
     '#type' => 'select',
     '#title' => t('Tipo de listado'),
-    '#disabled' => TRUE,
     '#options' => array(
       'recientes' => t('Recientes'),
+      'relacionados' => t('Relacionados'),
     ),
     '#default_value' => $form_state['conf']['tipo_de_listado'],
     '#description' => t('Cada tipo de listado tiene un comportamiento diferente'),
@@ -120,7 +120,6 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
       'vertical' => t("Vertical"),
       'horizontal' => t("Horizontal")
     ),
-    '#description' => t('Tipo de contenido a listar'),
   );
   $form['icono'] = array(
     '#title' => t('Ícono'),
@@ -162,6 +161,7 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
       $conf["tipos_de_contenido"],
       isset($conf['tipo_noticia']) && isset($conf['tipo_noticia']['entity_id']) ? $conf['tipo_noticia']['entity_id'] : 'all',
       isset($conf['tipo_tramite']) && isset($conf['tipo_tramite']['entity_id']) ? $conf['tipo_tramite']['entity_id'] : 'all',
+      $conf['tipo_de_listado'] == 'relacionados' && esNodo() ? arg(1) : 'all',
     )
   );
   $view->set_items_per_page($conf["cantidad_links"]);
@@ -217,4 +217,8 @@ function crearLink($item, $theme, $conf = NULL){
       )
     )
   );
+}
+
+function esNodo(){
+  return arg(0) == 'node' && is_numeric(arg(1));
 }
