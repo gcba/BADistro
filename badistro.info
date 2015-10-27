@@ -18,6 +18,7 @@ dependencies[] = comment
 dependencies[] = contextual
 dependencies[] = entity
 dependencies[] = entityreference
+dependencies[] = entityreference_autocomplete
 dependencies[] = dashboard
 dependencies[] = devel
 dependencies[] = features
