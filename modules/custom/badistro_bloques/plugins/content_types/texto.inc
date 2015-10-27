@@ -11,7 +11,8 @@ $plugin = array(
   'defaults' => array(
     'destacado' => 0,
     'texto' => NULL,
-    'sobreescribir' => 0
+    'sobreescribir' => 0,
+    'cuerpo_o_resumen' => 'body'
   )
 );
 
@@ -20,6 +21,12 @@ function badistro_bloques_texto_edit_form($form, &$form_state){
   $form['destacado'] = array(
     '#type' => 'checkbox', 
     '#title' => t('Texto destacado'),
+  );
+  $form['cuerpo_o_resumen'] = array(
+    '#type' => 'radios',
+    '#title' => t('Cantidad de texto'),
+    '#default_value' => $form_state['conf']['cuerpo_o_resumen'],
+    '#options' => array('body' => 'Texto completo', 'summary' => 'Resumen'),
   );
   $form['sobreescribir'] = array(
     '#title' => t('¿Personalizar texto?'),
@@ -61,10 +68,11 @@ function badistro_bloques_texto_render($subtype, $conf, $panel_args, $context = 
   $block->title = '';
   $node = nodoDisponible($conf['sobreescribir']) ? node_load(arg(1)) : '';
   $texto = field_get_items('node', $node, 'body', NULL);
+  $texto = $conf['cuerpo_o_resumen'] == 'body' ? $texto[0]['safe_value'] : $texto[0]['safe_summary'] ;
   $block->content = theme(
     'badistro_bloques_texto',
     array(
-      'tag' => theme('html_tag', array('element' => array('#tag' => 'p', '#attributes' => array('class' => $conf['destacado'] ? 'lead' : ''), '#value' => nodoDisponible($conf['sobreescribir']) ? $texto[0]['summary'] : $conf['texto'],
+      'tag' => theme('html_tag', array('element' => array('#tag' => 'div', '#attributes' => array('class' => $conf['destacado'] ? 'lead' : ''), '#value' => nodoDisponible($conf['sobreescribir']) ? $texto : $conf['texto'],
       ),
     )
   )
@@ -76,7 +84,7 @@ function badistro_bloques_texto_render($subtype, $conf, $panel_args, $context = 
 function badistro_bloques_texto_admin_info($subtype, $conf, $contexts){
   if (!empty($conf)) {
     $block = new stdClass;
-    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Título');
+    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Texto');
     $block->content = t('@texto.', array('@texto' => $conf['texto']));
     return $block;
   }
