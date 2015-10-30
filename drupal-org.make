@@ -35,11 +35,13 @@ projects[metatag][version] = 1.7
 
 projects[multiform][version] = 1.1
 
-projects[plupload][version] = 1.7
-
 projects[panels][version] = 3.5
 
 projects[panelizer][version] = 3.1
+
+projects[pathauto][version] = 1.3
+
+projects[plupload][version] = 1.7
 
 projects[pm_existing_pages][version] = 1.4
 
