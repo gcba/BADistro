@@ -7,9 +7,11 @@
   </div>
   <?php foreach (array_chunk($links, 1) as $key => $row) { ?>
   <div class="row">
+    <div class="item-vertical">
     <?php foreach ($row as $item) { ?>
       <?php print $item; ?>
     <?php } ?>
+  </div>
   </div> 
   <?php } ?>
   </div>
