@@ -161,7 +161,8 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
       $conf["tipos_de_contenido"],
       isset($conf['tipo_noticia']) && isset($conf['tipo_noticia']['entity_id']) ? $conf['tipo_noticia']['entity_id'] : 'all',
       isset($conf['tipo_tramite']) && isset($conf['tipo_tramite']['entity_id']) ? $conf['tipo_tramite']['entity_id'] : 'all',
-      $conf['tipo_de_listado'] == 'relacionados' && esNodo() ? arg(1) : 'all',
+      $conf['tipo_de_listado'] == 'relacionados' && (esNoticia() || esTramite()) ? arg(1) : 'all',
+      $conf['tipo_de_listado'] == 'relacionados' && esArea() ? arg(1) : 'all'
     )
   );
   $view->set_items_per_page($conf["cantidad_links"]);
@@ -221,4 +222,16 @@ function crearLink($item, $theme, $conf = NULL){
 
 function esNodo(){
   return arg(0) == 'node' && is_numeric(arg(1));
+}
+function esArea(){
+  return (esNodo() && es('area', node_load(arg(1))));
+}
+function esTramite(){
+  return (esNodo() && es('tramite', node_load(arg(1))));
+}
+function esNoticia(){
+  return (esNodo() && es('noticia', node_load(arg(1))));
+}
+function es($tipo, $nodo){
+  return ($nodo->type == $tipo);
 }

@@ -106,6 +106,14 @@ function badistro_cck_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['not'] = TRUE;
+  /* Contextual filter: Content: Área superior (field_area) */
+  $handler->display->display_options['arguments']['field_area_target_id']['id'] = 'field_area_target_id';
+  $handler->display->display_options['arguments']['field_area_target_id']['table'] = 'field_data_field_area';
+  $handler->display->display_options['arguments']['field_area_target_id']['field'] = 'field_area_target_id';
+  $handler->display->display_options['arguments']['field_area_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_area_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_area_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_area_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -113,6 +121,9 @@ function badistro_cck_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: General */
+  $handler = $view->new_display('block', 'General', 'listado_de_contenido_default');
   $translatables['listado_de_contenido'] = array(
     t('Master'),
     t('Listado de Contenido'),
@@ -130,6 +141,7 @@ function badistro_cck_views_default_views() {
     t('next ›'),
     t('last »'),
     t('All'),
+    t('General'),
   );
   $export['listado_de_contenido'] = $view;
 
