@@ -497,8 +497,10 @@ footer .links-rel li:nth-child(1){
   font-family:'Montserrat', sans-serif;
   color:#FFF;
   padding-left: 3%;
-  margin-top:130px;
-  
+  margin-top:110px;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 48px;
+
 }
 
 
@@ -510,6 +512,10 @@ footer .links-rel li:nth-child(1){
 
 .modal-content img {
 max-width: 100%;
+}
+
+.panel-pane.pane-listado .item-vertical{
+  margin-bottom:30px;
 }
 
 /* colores span */
