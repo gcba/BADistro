@@ -63,11 +63,20 @@ function badistro_cck_image_default_styles() {
       8 => array(
         'name' => 'image_scale',
         'data' => array(
-          'width' => '',
-          'height' => 300,
-          'upscale' => 0,
+          'width' => 1965,
+          'height' => '',
+          'upscale' => 1,
         ),
         'weight' => 1,
+      ),
+      10 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 1965,
+          'height' => 300,
+          'anchor' => 'center-top',
+        ),
+        'weight' => 2,
       ),
     ),
   );
