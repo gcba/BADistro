@@ -37,6 +37,7 @@ dependencies[] = media
 dependencies[] = number
 dependencies[] = options
 dependencies[] = path
+dependencies[] = pathauto
 dependencies[] = panelizer
 dependencies[] = plupload
 dependencies[] = pm_existing_pages
