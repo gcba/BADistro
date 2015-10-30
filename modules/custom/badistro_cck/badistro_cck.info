@@ -1,6 +1,7 @@
 name = CCK
 core = 7.x
 package = BA Distro
+version = 7.x-1.0
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
@@ -50,6 +51,9 @@ features[menu_custom][] = menu-redes-sociales
 features[menu_custom][] = navigation
 features[menu_custom][] = user-menu
 features[page_manager_handlers][] = pm_existing_pages_node_overview__pagina_principal
+features[page_manager_pages][] = areas
+features[page_manager_pages][] = noticias
+features[page_manager_pages][] = tramites
 features[taxonomy][] = tags
 features[user_role][] = Editor de Contenido
 features[views_view][] = listado_de_contenido
