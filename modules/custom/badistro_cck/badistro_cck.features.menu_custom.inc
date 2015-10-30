@@ -28,16 +28,16 @@ function badistro_cck_menu_default_menu_custom() {
     'title' => 'Management',
     'description' => 'The <em>Management</em> menu contains links for administrative tasks.',
   );
-  // Exported menu: menu-pie-de-pagina-derecha.
-  $menus['menu-pie-de-pagina-derecha'] = array(
-    'menu_name' => 'menu-pie-de-pagina-derecha',
-    'title' => 'Pie de página (Derecha)',
+  // Exported menu: menu-acerca-de-este-sitio.
+  $menus['menu-acerca-de-este-sitio'] = array(
+    'menu_name' => 'menu-acerca-de-este-sitio',
+    'title' => 'Acerca de este sitio',
     'description' => '',
   );
-  // Exported menu: menu-pie-de-pagina-izquierda.
-  $menus['menu-pie-de-pagina-izquierda'] = array(
-    'menu_name' => 'menu-pie-de-pagina-izquierda',
-    'title' => 'Pie de página (Izquierda)',
+  // Exported menu: menu-paginas-relacionadas.
+  $menus['menu-paginas-relacionadas'] = array(
+    'menu_name' => 'menu-paginas-relacionadas',
+    'title' => 'Páginas relacionadas',
     'description' => '',
   );
   // Exported menu: menu-redes-sociales.
@@ -60,13 +60,13 @@ function badistro_cck_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acerca de este sitio');
   t('Development');
   t('Development link');
   t('Main menu');
   t('Management');
   t('Navigation');
-  t('Pie de página (Derecha)');
-  t('Pie de página (Izquierda)');
+  t('Páginas relacionadas');
   t('Redes sociales');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
   t('The <em>Management</em> menu contains links for administrative tasks.');
