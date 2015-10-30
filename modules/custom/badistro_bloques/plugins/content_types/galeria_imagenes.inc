@@ -74,7 +74,7 @@ function badistro_bloques_galeria_imagenes_render($subtype, $conf, $panel_args, 
         );
         $imagenes[$key]['original'] = theme_image_style(
           array(
-            'style_name' => 'original',
+            'style_name' => 'gallery_large',
             'path' => $imagen['uri'],
             'width' => '',
             'height' => '',
