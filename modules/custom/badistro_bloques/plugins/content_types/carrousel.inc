@@ -95,11 +95,13 @@ function badistro_bloques_carrousel_render($subtype, $conf, $panel_args, $contex
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
   $view->set_display('default');
+  $tipoNoticia = reset($conf['tipo_noticia']);
+  $tipoTramite = reset($conf['tipo_tramite']);
   $view->set_arguments(
     array(
       tiposDeContenidoElegidos($conf["tipos_de_contenido"]),
-      !(empty($conf['tipo_noticia'])) ? reset($conf['tipo_noticia'])['entity_id'] : 'all',
-      !(empty($conf['tipo_tramite'])) ? reset($conf['tipo_tramite'])['entity_id'] : 'all',
+      !(empty($conf['tipo_noticia'])) ? $tipoNoticia['entity_id'] : 'all',
+      !(empty($conf['tipo_tramite'])) ? $tipoTramite['entity_id'] : 'all',
       'all',
       'all'
     )
