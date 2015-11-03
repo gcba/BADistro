@@ -1,0 +1,2 @@
+<h2 class="text-left"><?php echo $configuraciones['titulo']; ?></h2>
+<a class="twitter-timeline" href="https://twitter.com/<?php echo $configuraciones['tw_screen_name']; ?>" data-widget-id="<?php echo $configuraciones['tw_widget_id'] ?>">Tweets por el <?php echo l('Tweets por @' .  $configuraciones['tw_screen_name'], '//www.twitter.com/' . $configuraciones['tw_screen_name'], $options = array('attributes' => array('target' => '_blank'))); ?></a>
