@@ -127,6 +127,20 @@ form.navbar-form.navbar-right{
   margin: 33px;
 }
 
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    display: inline;
+    float: left;
+    border-radius: 6px;
+}
+
+form#search-block-form {
+    margin-top: 8%;
+    width: 70%;
+}
+
 /*end nav menu*/
 
 /* separador bloque content */
@@ -382,18 +396,21 @@ footer .links-rel li:nth-child(1){
 
 /* Footer Redes sociales */
 
-.mini-social{
+.mini-social,
+#block-menu-menu-redes-sociales ul.menu.nav{
   margin: 0;
   padding: 0;
 }
 
-.mini-social li{
+.mini-social li,
+#block-menu-menu-redes-sociales ul.menu.nav li{
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-.mini-social a {
+.mini-social a,
+#block-menu-menu-redes-sociales ul.menu.nav li a {
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -402,40 +419,40 @@ footer .links-rel li:nth-child(1){
     text-indent: -9999px;
 }
 
-.social-fb {
+#block-menu-menu-redes-sociales ul.menu.nav li a.social-fb {
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fb.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fb.svg), none;
     background-size: cover;
 }
 
 
-.social-tw {
+#block-menu-menu-redes-sociales ul.menu.nav li a.social-tw {
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-tw.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-tw.svg), none;
     background-size: cover;
 }
 
-.social-gp {
+#block-menu-menu-redes-sociales ul.menu.nav li a.social-gp {
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-gp.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-gp.svg), none;
     background-size: cover;
 }
 
 
-.social-yt {
+#block-menu-menu-redes-sociales ul.menu.nav li a.social-yt {
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-yt.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-yt.svg), none;
     background-size: cover;
 }
 
-.social-fl {
+#block-menu-menu-redes-sociales ul.menu.nav li a.social-fl {
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fl.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fl.svg), none;
     background-size: cover;
 }
 
 
-.social-rss {
+#block-menu-menu-redes-sociales ul.menu.nav li a.social-rss {
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-rss.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-rss.svg), none;
     background-size: cover;
@@ -447,6 +464,23 @@ footer .links-rel li:nth-child(1){
     background-size: cover;
     margin-top: 10px;
 }
+
+/* SHARED REDES SOCIALES */
+
+.redes-wrapper{
+  margin:30px 0;
+  width: 100%;
+}
+
+.twitter-share-button{
+ margin-left:10px;
+}
+
+.fb-share-button{
+  float:left;
+}
+
+/*END SHARED REDES SOCIALES */
 
 /* JUMBOTRON */
 
