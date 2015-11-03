@@ -43,7 +43,7 @@ function badistro_bloques_redes_sociales_edit_form($form, &$form_state) {
     '#title' => t('Título'),
     '#type' => 'textfield',
     '#default_value' => $form_state['conf']['titulo'],
-    '#required' => TRUE,
+    '#required' => FALSE,
   );
   $form['tipo_widget'] = array(
     '#title' => t('Tipo de widget'),
