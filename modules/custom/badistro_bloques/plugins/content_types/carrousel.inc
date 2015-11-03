@@ -10,7 +10,9 @@ $plugin = array(
   'admin info' => 'badistro_bloques_carrousel_admin_info',
   'defaults' => array(
     'tipos_de_contenido' => array(),
-    'cantidad_de_slides' => 3
+    'cantidad_de_slides' => 3,
+    'tipo_noticia' => 'all',
+    'tipo_tramite' => 'all',
   )
 );
 
@@ -33,6 +35,12 @@ function badistro_bloques_carrousel_edit_form($form, &$form_state) {
   foreach (node_type_get_types() as $item) {
     $tiposDeContenido[$item->type] = $item->name;
   }
+  $form['cantidad_de_slides'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cantidad de slides'),
+    '#default_value' => $form_state['conf']['cantidad_de_slides'],
+    '#element_validate' => array('element_validate_integer_positive'), 
+  );
   $form['tipos_de_contenido'] = array(
     '#title' => t('Tipos de contenido'),
     '#type' => 'checkboxes',
@@ -40,11 +48,33 @@ function badistro_bloques_carrousel_edit_form($form, &$form_state) {
     '#required' => TRUE,
     '#options' => $tiposDeContenido,
   );
-  $form['cantidad_de_slides'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Cantidad de slides'),
-    '#default_value' => $form_state['conf']['cantidad_de_slides'],
-    '#element_validate' => array('element_validate_integer_positive'), 
+  $form['tipo_tramite'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Tipo de Trámites'),
+    '#description' => t('Filtrar por tipo de trámite. Dejar vacío para listar todos los trámites'),
+    '#required' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="tipos_de_contenido[tramite]"]' => array('checked' => TRUE),
+      ),
+    ),
+    '#era_entity_type' => 'taxonomy_term',  // Mandatory.
+    '#era_bundles' => array('tramites'), // Optional (Any bundle by default).
+    '#era_cardinality' => 2,       // Optional (1 By default).
+  );
+  $form['tipo_noticia'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Categoría de Noticias'),
+    '#description' => t('Filtrar por categoría de noticias. Dejar vacío para listar todos los noticias'),
+    '#required' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="tipos_de_contenido[noticia]"]' => array('checked' => TRUE),
+      ),
+    ),
+    '#era_entity_type' => 'taxonomy_term',  // Mandatory.
+    '#era_bundles' => array('noticias'), // Optional (Any bundle by default).
+    '#era_cardinality' => 1,       // Optional (1 By default).
   );
 
   return $form;
@@ -64,6 +94,16 @@ function badistro_bloques_carrousel_render($subtype, $conf, $panel_args, $contex
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
+  $view->set_display('default');
+  $view->set_arguments(
+    array(
+      tiposDeContenidoElegidos($conf["tipos_de_contenido"]),
+      !(empty($conf['tipo_noticia'])) ? reset($conf['tipo_noticia'])['entity_id'] : 'all',
+      !(empty($conf['tipo_tramite'])) ? reset($conf['tipo_tramite'])['entity_id'] : 'all',
+      'all',
+      'all'
+    )
+  );
   $view->set_items_per_page($conf["cantidad_de_slides"]);
   $view->execute();
   foreach ($view->result as $key => $item) {
@@ -82,4 +122,13 @@ function crearSlide($item){
   $slide->imagen = theme_image_style(array('style_name' => 'wide', 'path' => $slide->imagen[0]["uri"], 'width' => '', 'height' => ''));
   $slide->imagen = l($slide->imagen, 'node/' . $slide->id, array('html' => TRUE));
   return $slide;
+}
+function tiposDeContenidoElegidos($tiposDeContenido){
+  $tiposDeContenidoElegidos = array();
+  foreach ($tiposDeContenido as $key => $value) {
+    if(!$value == 0) {
+      $tiposDeContenidoElegidos[] = $key;
+    }
+  }
+  return implode('+', $tiposDeContenidoElegidos);
 }
