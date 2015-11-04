@@ -159,6 +159,8 @@ function badistro_bloques_listado_edit_form_submit($form, &$form_state) {
   }
 }
 function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context = NULL){
+  $tipoNoticia = !empty($conf['tipo_noticia']) ? reset($conf['tipo_noticia']) : array();
+  $tipoTramite = !empty($conf['tipo_tramite']) ? reset($conf['tipo_tramite']) : array();
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
@@ -166,8 +168,8 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
   $view->set_arguments(
     array(
       $conf["tipos_de_contenido"],
-      isset($conf['tipo_noticia']) && isset($conf['tipo_noticia']['entity_id']) ? $conf['tipo_noticia']['entity_id'] : 'all',
-      isset($conf['tipo_tramite']) && isset($conf['tipo_tramite']['entity_id']) ? $conf['tipo_tramite']['entity_id'] : 'all',
+      !(empty($conf['tipo_noticia'])) ? $tipoNoticia['entity_id'] : 'all',
+      !(empty($conf['tipo_tramite'])) ? $tipoTramite['entity_id'] : 'all',
       $conf['tipo_de_listado'] == 'relacionados' && (esNoticia() || esTramite()) ? arg(1) : 'all',
       $conf['tipo_de_listado'] == 'relacionados' && esArea() ? arg(1) : 'all'
     )
