@@ -10,4 +10,4 @@
     </div>
     <?php } ?>
  </ul>
-<button type="button" class="btn btn-default btn-lg btn-block">Ver todos trámites</button>
+<?php if(isset($boton)) { print $boton; } ?>
