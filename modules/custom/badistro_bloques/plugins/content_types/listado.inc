@@ -17,7 +17,8 @@ $plugin = array(
     'icono' => 'glyphicon-paperclip',
     'tipo_noticia' => 'all',
     'tipo_tramite' => 'all',
-    'orientacion_de_listado' => 'vertical'
+    'orientacion_de_listado' => 'vertical',
+    'todos_los_items' => TRUE,
   )
 );
 
@@ -53,6 +54,12 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
     '#default_value' => $form_state['conf']['cantidad_links'],
     '#element_validate' => array('element_validate_integer_positive'), 
     '#description' => t('Cantidad máxima de items del listado'),
+  );
+  $form['todos_los_items'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Incluír opción "Todos los items"'),
+    '#default_value' => $form_state['conf']['todos_los_items'],
+    '#description' => t('Si está tildado se mostrará un link a todos los items del tipo de contenido seleccionado'),
   );
   $form['tipos_de_contenido'] = array(
     '#title' => t('Tipo de contenido'),
@@ -176,6 +183,7 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
       "titulo" => $conf["titulo"],
       'links' => $links,
       'icono' => $conf['icono'],
+      'boton' => $conf['tipos_de_contenido'] != 'pagina' && $conf['todos_los_items'] ? l(t('Ver todos'), '/' . $conf['tipos_de_contenido'] . 's', array('attributes' => array('class' => array('btn', 'btn-default', 'btn-lg', 'btn-block')))) : NULL
     )
   );
   return $block;
