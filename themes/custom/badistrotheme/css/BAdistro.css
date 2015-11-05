@@ -341,6 +341,9 @@ form#search-block-form {
  height: 40px;
 }
 
+.separator-bloque-contenido{
+  height: 120px;
+}
 
 .banner img{
   display: block;
@@ -495,8 +498,19 @@ footer .links-rel li:nth-child(1){
   color:#666;
 }
 
-#block-menu-menu-acerca-de-este-sitio ul li{
+#block-menu-menu-redes-sociales h2{
+  font-size: 22px;
+  margin-top: 2em;
+}
 
+#block-menu-menu-acerca-de-este-sitio h2{
+  font-size: 22px;
+  margin-top: 2em;
+}
+
+#block-menu-menu-paginas-relacionadas h2{
+  font-size: 22px;
+  margin-top: 5.2em;
 }
 
 /* FOOTER PAGINAS RELACIONADAS */
@@ -663,19 +677,3 @@ max-width: 100%;
 .separator-tramites{
   height: 5px;
 }
-
-/* MAIN CONTENT */
-
-.main-container {
-    margin-top: 170px;
-}
-
-@media only screen and (max-width:960px){
-  nav.navbar-fixed-top{
-    position: static;
-    margin-bottom: 0px;
-  }
-  .main-container {
-    margin-top: 0px;
-  }
-} 
