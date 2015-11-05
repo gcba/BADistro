@@ -114,6 +114,10 @@ a {
     background-color: #CCC;
 }
 
+body.toolbar.logged-in .navbar-fixed-top {
+    top: 64px;
+}
+
 body.toolbar .navbar-fixed-top {
     top: 0;
 }
