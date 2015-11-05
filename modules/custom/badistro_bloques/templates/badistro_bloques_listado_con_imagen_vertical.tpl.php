@@ -5,7 +5,4 @@
   </div> 
 <?php } ?>
 <div class="separator clearfix"></div>  
-<button type="button" class="btn btn-default btn-lg btn-block">Ver todas las Noticias</button>
-
-          
-           
+<?php if(isset($boton)) { print $boton; } ?>

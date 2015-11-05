@@ -8,7 +8,7 @@
     <?php } ?>
   </div> 
 <?php } ?>
-<button type="button" class="btn btn-default btn-lg">Ver todas las Noticias</button>
+<?php if(isset($boton)) { print $boton; } ?>
 
           
            

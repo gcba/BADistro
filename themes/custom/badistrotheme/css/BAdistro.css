@@ -114,6 +114,10 @@ a {
     background-color: #CCC;
 }
 
+body.toolbar.logged-in .navbar-fixed-top {
+    top: 64px;
+}
+
 body.toolbar .navbar-fixed-top {
     top: 0;
 }
@@ -476,8 +480,7 @@ footer .links-rel li:nth-child(1){
 /* SHARED REDES SOCIALES */
 
 .redes-wrapper{
-  margin:30px 0;
-  width: 100%;
+  margin:0px 0px 30px;
 }
 
 .twitter-share-button{

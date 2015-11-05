@@ -17,7 +17,8 @@ $plugin = array(
     'icono' => 'glyphicon-paperclip',
     'tipo_noticia' => 'all',
     'tipo_tramite' => 'all',
-    'orientacion_de_listado' => 'vertical'
+    'orientacion_de_listado' => 'vertical',
+    'todos_los_items' => TRUE,
   )
 );
 
@@ -53,6 +54,12 @@ function badistro_bloques_listado_edit_form($form, &$form_state) {
     '#default_value' => $form_state['conf']['cantidad_links'],
     '#element_validate' => array('element_validate_integer_positive'), 
     '#description' => t('Cantidad máxima de items del listado'),
+  );
+  $form['todos_los_items'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Incluír opción "Todos los items"'),
+    '#default_value' => $form_state['conf']['todos_los_items'],
+    '#description' => t('Si está tildado se mostrará un link a todos los items del tipo de contenido seleccionado'),
   );
   $form['tipos_de_contenido'] = array(
     '#title' => t('Tipo de contenido'),
@@ -152,6 +159,8 @@ function badistro_bloques_listado_edit_form_submit($form, &$form_state) {
   }
 }
 function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context = NULL){
+  $tipoNoticia = !empty($conf['tipo_noticia']) ? reset($conf['tipo_noticia']) : array();
+  $tipoTramite = !empty($conf['tipo_tramite']) ? reset($conf['tipo_tramite']) : array();
   $block = new stdClass();
   $block->title = '';
   $view = views_get_view('listado_de_contenido');
@@ -159,8 +168,8 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
   $view->set_arguments(
     array(
       $conf["tipos_de_contenido"],
-      isset($conf['tipo_noticia']) && isset($conf['tipo_noticia']['entity_id']) ? $conf['tipo_noticia']['entity_id'] : 'all',
-      isset($conf['tipo_tramite']) && isset($conf['tipo_tramite']['entity_id']) ? $conf['tipo_tramite']['entity_id'] : 'all',
+      !(empty($conf['tipo_noticia'])) ? $tipoNoticia['entity_id'] : 'all',
+      !(empty($conf['tipo_tramite'])) ? $tipoTramite['entity_id'] : 'all',
       $conf['tipo_de_listado'] == 'relacionados' && (esNoticia() || esTramite()) ? arg(1) : 'all',
       $conf['tipo_de_listado'] == 'relacionados' && esArea() ? arg(1) : 'all'
     )
@@ -176,6 +185,7 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
       "titulo" => $conf["titulo"],
       'links' => $links,
       'icono' => $conf['icono'],
+      'boton' => $conf['tipos_de_contenido'] != 'pagina' && $conf['todos_los_items'] ? l(t('Ver todos'), '/' . $conf['tipos_de_contenido'] . 's', array('attributes' => array('class' => array('btn', 'btn-default', 'btn-lg', 'btn-block')))) : NULL
     )
   );
   return $block;
