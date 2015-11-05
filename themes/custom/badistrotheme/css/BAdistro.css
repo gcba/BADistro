@@ -419,43 +419,49 @@ footer .links-rel li:nth-child(1){
     text-indent: -9999px;
 }
 
-#block-menu-menu-redes-sociales ul.menu.nav li a.social-fb {
+#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-971 a{
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fb.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fb.svg), none;
     background-size: cover;
+    background-color: transparent;
 }
 
 
-#block-menu-menu-redes-sociales ul.menu.nav li a.social-tw {
+#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-969 a{
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-tw.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-tw.svg), none;
     background-size: cover;
+    background-color: transparent;
 }
 
-#block-menu-menu-redes-sociales ul.menu.nav li a.social-gp {
+#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-966 a{
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-gp.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-gp.svg), none;
     background-size: cover;
+    background-color: transparent;
 }
 
 
-#block-menu-menu-redes-sociales ul.menu.nav li a.social-yt {
+#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-970 a{
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-yt.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-yt.svg), none;
     background-size: cover;
+    background-color: transparent;
 }
 
-#block-menu-menu-redes-sociales ul.menu.nav li a.social-fl {
+#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-967 a{
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fl.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-fl.svg), none;
     background-size: cover;
+    background-color: transparent;
 }
 
 
-#block-menu-menu-redes-sociales ul.menu.nav li a.social-rss {
+#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-968 a{
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-rss.png);
     background-image: url(/BADistro/profiles/badistro/themes/custom/badistrotheme/img/social-rss.svg), none;
     background-size: cover;
+    background-color: transparent;
 }
 
 .social-cc {
@@ -464,6 +470,8 @@ footer .links-rel li:nth-child(1){
     background-size: cover;
     margin-top: 10px;
 }
+
+
 
 /* SHARED REDES SOCIALES */
 
@@ -480,9 +488,59 @@ footer .links-rel li:nth-child(1){
   float:left;
 }
 
-/*END SHARED REDES SOCIALES */
+.label-destacado{
+  font-size: 1em;
+  font-family:'Montserrat' ;
+  font-weight: 500;
+  color:#666;
+}
 
-/* JUMBOTRON */
+#block-menu-menu-acerca-de-este-sitio ul li{
+
+}
+
+/* FOOTER PAGINAS RELACIONADAS */
+#menu-paginas-relacionadas-972 a{
+    background-color:transparent;
+}
+
+/* FOOTER POLITICAS DE PRIVACIDAD */
+#menu-acerca-de-este-sitio-975 a{
+  background-color:transparent;
+}
+
+/* FOOTER TERMINOS Y CONDICIONES */
+#menu-acerca-de-este-sitio-976 a{
+  background-color:transparent;
+
+}
+
+/* BACKEND DRUPAL INTERNO */
+.page-node-edit {
+  margin:0 10%;
+}
+
+.page-node-add {
+  margin: 3% 10%;
+
+}
+
+.page-node-edit #block-system-main{
+  margin:3% 10%;
+}
+
+
+#block-system-main .node-type-list a{
+  background-color: #999;
+  padding: 5px 10px;
+  margin-top: 10%;
+  color:#FFF;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  line-height: 3;
+
+}
 
 
 
