@@ -341,9 +341,6 @@ form#search-block-form {
  height: 40px;
 }
 
-.separator-bloque-contenido{
-  height: 120px;
-}
 
 .banner img{
   display: block;
@@ -666,3 +663,19 @@ max-width: 100%;
 .separator-tramites{
   height: 5px;
 }
+
+/* MAIN CONTENT */
+
+.main-container {
+    margin-top: 170px;
+}
+
+@media only screen and (max-width:960px){
+  nav.navbar-fixed-top{
+    position: static;
+    margin-bottom: 0px;
+  }
+  .main-container {
+    margin-top: 0px;
+  }
+} 
