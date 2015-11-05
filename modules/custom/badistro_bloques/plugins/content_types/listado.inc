@@ -179,7 +179,7 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
   foreach ($view->result as $key => $item) {
     $links[] = crearLink($item, $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"], $conf);
   }
-  $block->content = theme(
+  $block->content = sizeof($links) > 0 ? theme(
     $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"],
     array(
       "titulo" => $conf["titulo"],
@@ -187,7 +187,12 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
       'icono' => $conf['icono'],
       'boton' => $conf['tipos_de_contenido'] != 'pagina' && $conf['todos_los_items'] ? l(t('Ver todos'), '/' . $conf['tipos_de_contenido'] . 's', array('attributes' => array('class' => array('btn', 'btn-default', 'btn-lg', 'btn-block')))) : NULL
     )
-  );
+  ) : theme(
+      'badistro_bloques_listado_vacio', 
+      array(
+        "titulo" => $conf["titulo"]
+      )
+    );
   return $block;
 }
 function crearLink($item, $theme, $conf = NULL){
