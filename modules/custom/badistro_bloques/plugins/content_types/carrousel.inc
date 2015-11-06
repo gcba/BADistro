@@ -111,7 +111,7 @@ function badistro_bloques_carrousel_render($subtype, $conf, $panel_args, $contex
   foreach ($view->result as $key => $item) {
     $slides[] = crearSlide($item);
   }
-  $block->content = theme('badistro_bloques_carrousel', array('slides' => $slides));
+  $block->content = sizeof($slides) > 0 ? theme('badistro_bloques_carrousel', array('slides' => $slides)) : FALSE;
   return $block;
 }
 function crearSlide($item){
