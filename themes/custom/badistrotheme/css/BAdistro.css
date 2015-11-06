@@ -697,6 +697,11 @@ max-width: 100%;
     margin-left: -10px;
 }
 
+.navbar #block-search-form {
+    width: 135%;
+    margin-bottom: 10px;
+}
+
 }  
 
 
