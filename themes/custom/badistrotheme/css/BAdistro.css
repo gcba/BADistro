@@ -544,6 +544,7 @@ footer .links-rel li:nth-child(1){
 }
 
 
+
 #block-system-main .node-type-list a{
   background-color: #999;
   padding: 5px 10px;
@@ -677,3 +678,28 @@ max-width: 100%;
 .separator-tramites{
   height: 5px;
 }
+
+@media only screen and (max-width:768px){ 
+.nav li a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    display: block;
+    float: none;
+    border-radius: 6px;
+    margin-left:0;
+    background-color: #efefef;
+    margin:5px 0;
+}
+
+.navbar.transparent .navbar-inner ul {
+    padding: 10px 0 10px;
+    margin-left: -10px;
+}
+
+}  
+
+
+
+
+
