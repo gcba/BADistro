@@ -24,8 +24,8 @@ $plugin = array(
 function badistro_bloques_shortcut_admin_info($subtype, $conf, $contexts) {
   if (!empty($conf)) {
     $block = new stdClass;
-    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Shortcut');
-    $block->content = t('Shortcut');
+    $block->title = $conf['override_title'] ? $conf['override_title_text'] : $conf['titulo'];
+    $block->content = $conf['texto'];
     return $block;
   }
 }
