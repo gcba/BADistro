@@ -14,6 +14,7 @@ $plugin = array(
     'titulo' => '',
     'texto' => '',
     'referencia' => array(),
+    'link' => ''
   )
 );
 
@@ -69,11 +70,28 @@ function badistro_bloques_shortcut_edit_form($form, &$form_state) {
   );
   $form['referencia'] = array(
     '#type' => 'entityreference',
-    '#title' => t('Página, trámite o noticia a referenciar'),
-    '#required' => TRUE,
+    '#title' => t('Página, trámite o noticia'),
+    '#required' => FALSE,
     '#era_entity_type' => 'node',  // Mandatory.
     '#era_bundles' => array(), // Optional (Any bundle by default).
     '#era_cardinality' => 1,       // Optional (1 By default).
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="link"]' => array('filled' => TRUE),
+      ),
+    ),
+    '#description' => t('Usar este campo para referenciar contenido'),
+  );
+  $form['link'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Link'),
+    '#required' => FALSE,
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="referencia"]' => array('filled' => TRUE),
+      ),
+    ),
+    '#description' => t('Usar este campo para crear un link personalizado'),
   );
   return $form;
 }
@@ -92,7 +110,7 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
 
   $block = new stdClass();
   $block->title = '';
-  $block->content = l(
+  $block->content = !empty($conf['referencia']) || !empty($conf['link']) ? l(
     theme(
       'badistro_bloques_shortcut',
       array(
@@ -102,7 +120,7 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
         'titulo' => $conf['titulo']
       )
     ),
-    'node/' . $conf['referencia']['entity_id'],
+    !empty($conf['referencia']) ? 'node/' . $conf['referencia']['entity_id'] : $conf['link'],
     array(
       'html' => TRUE,
       'attributes' => array(
@@ -112,6 +130,14 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
         )
       ),
     )
+  ) : theme(
+      'badistro_bloques_shortcut',
+      array(
+        'color' => $conf['color_fondo'],
+        'icono' => $conf['icono'],
+        'texto' => $conf['texto'],
+        'titulo' => $conf['titulo']
+      )
   );
   return $block;
 }
