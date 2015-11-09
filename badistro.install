@@ -46,7 +46,7 @@ function enable_badistro_themes(){
 // Habilita Node Overview de Page Manager Existing Pages
 
 function enable_pages(){
-  $pages = array("pm_existing_pages-node_overview", "node_view, page-tramites, page-noticias, page-areas");
+  $pages = array("pm_existing_pages-node_overview", "node_view", "page-tramites", "page-noticias", "page-areas");
   foreach ($pages as $item) {
     $page = page_manager_get_page_cache($item);
     $function = ctools_plugin_get_function($page->subtask, "enable callback"); 

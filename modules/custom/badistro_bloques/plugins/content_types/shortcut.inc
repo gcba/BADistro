@@ -14,6 +14,7 @@ $plugin = array(
     'titulo' => '',
     'texto' => '',
     'referencia' => array(),
+    'link' => ''
   )
 );
 
@@ -23,8 +24,8 @@ $plugin = array(
 function badistro_bloques_shortcut_admin_info($subtype, $conf, $contexts) {
   if (!empty($conf)) {
     $block = new stdClass;
-    $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Shortcut');
-    $block->content = t('Shortcut');
+    $block->title = $conf['override_title'] ? $conf['override_title_text'] : $conf['titulo'];
+    $block->content = $conf['texto'];
     return $block;
   }
 }
@@ -65,15 +66,74 @@ function badistro_bloques_shortcut_edit_form($form, &$form_state) {
       'glyphicon-paperclip' => t('Clip'),
       'glyphicon-star' => t('Estrella'),
       'glyphicon-heart' => t('Corazón'),
+      'glyphicon-music' => t('Música'),
+      'glyphicon-info-sign' => t('Información'),
+      'glyphicon-fire' => t('Fuego'),
+      'glyphicon-tree-deciduous' => t('Árbol'),
+      'glyphicon-gift' => t('Regalo'),
+      'glyphicon-ok-sign' => t('OK'),
+      'glyphicon-remove-sign' => t('Error'),
+      'glyphicon-search' => t('Buscar'),
+      'glyphicon-lock' => t('Candado'),
+      'glyphicon-cog' => t('Configuración'),
+      'glyphicon-plus' => t('Más'),
+      'glyphicon-minus' => t('Menos'),
+      'glyphicon-envelope' => t('Correo'),
+      'glyphicon-share-alt' => t('Compartir'),
+      'glyphicon-chevron-right' => t('Flecha Derecha'),
+      'glyphicon-chevron-left' => t('Flecha Izquierda'),
+      'glyphicon-question-sign' => t('Signo de interrogación'),
+      'glyphicon-calendar' => t('Calendario'),
+      'glyphicon-certificate' => t('Certificado'),
+      'glyphicon-link' => t('Link'),
+      'glyphicon-briefcase' => t('Maletín'),
+      'glyphicon-send' => t('Enviar'),
+      'glyphicon-earphone' => t('Teléfono'),
+      'glyphicon-alert' => t('Alerta'),
+      'glyphicon-piggy-bank' => t('Ahorro'),
+      'glyphicon-education' => t('Educación'),
+      'glyphicon-grain' => t('Campo'),
+      'glyphicon-globe' => t('Planeta'),
+      'glyphicon-shopping-cart' => t('Carrito de compra'),
+      'glyphicon-comment' => t('Diálogo'),
+      'glyphicon-gift' => t('Regalo'),
+      'glyphicon-map-marker' => t('Marcador'),
+      'glyphicon-flag' => t('Bandera'),
+      'glyphicon-list-alt' => t('Listado'),
+      'glyphicon-cloud' => t('Nube'),
+      'glyphicon-time' => t('Reloj'),
+      'glyphicon-camera' => t('Cámara'),
+      'glyphicon-leaf' => t('Hoja'),
+      'glyphicon-warning-sign' => t('Peligro'),
+      'glyphicon-usd' => t('Dinero'),
+      'glyphicon-flash' => t('Rayo'),
+      'glyphicon-transfer' => t('Transferencia'),
     ),
   );
   $form['referencia'] = array(
     '#type' => 'entityreference',
-    '#title' => t('Página, trámite o noticia a referenciar'),
-    '#required' => TRUE,
+    '#title' => t('Página, trámite o noticia'),
+    '#required' => FALSE,
     '#era_entity_type' => 'node',  // Mandatory.
     '#era_bundles' => array(), // Optional (Any bundle by default).
     '#era_cardinality' => 1,       // Optional (1 By default).
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="link"]' => array('filled' => TRUE),
+      ),
+    ),
+    '#description' => t('Usar este campo para referenciar contenido'),
+  );
+  $form['link'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Link'),
+    '#required' => FALSE,
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="referencia"]' => array('filled' => TRUE),
+      ),
+    ),
+    '#description' => t('Usar este campo para crear un link personalizado'),
   );
   return $form;
 }
@@ -92,7 +152,7 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
 
   $block = new stdClass();
   $block->title = '';
-  $block->content = l(
+  $block->content = !empty($conf['referencia']) || !empty($conf['link']) ? l(
     theme(
       'badistro_bloques_shortcut',
       array(
@@ -102,7 +162,7 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
         'titulo' => $conf['titulo']
       )
     ),
-    'node/' . $conf['referencia']['entity_id'],
+    !empty($conf['referencia']) ? 'node/' . $conf['referencia']['entity_id'] : $conf['link'],
     array(
       'html' => TRUE,
       'attributes' => array(
@@ -112,6 +172,14 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
         )
       ),
     )
+  ) : theme(
+      'badistro_bloques_shortcut',
+      array(
+        'color' => $conf['color_fondo'],
+        'icono' => $conf['icono'],
+        'texto' => $conf['texto'],
+        'titulo' => $conf['titulo']
+      )
   );
   return $block;
 }
