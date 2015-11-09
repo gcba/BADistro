@@ -65,11 +65,11 @@ function badistro_cck_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'cantidad_links' => '5',
+      'cantidad_links' => '10',
       'tipo_de_listado' => 'recientes',
       'tipos_de_contenido' => 'noticia',
-      'formato_de_listado' => 'badistro_bloques_listado',
-      'titulo' => 'Listado',
+      'formato_de_listado' => 'badistro_bloques_listado_con_imagen',
+      'titulo' => 'Noticias',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
@@ -77,6 +77,7 @@ function badistro_cck_default_page_manager_handlers() {
       'tipo_noticia' => FALSE,
       'tipo_tramite' => array(),
       'orientacion_de_listado' => 'vertical',
+      'todos_los_items' => 0,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -97,11 +98,11 @@ function badistro_cck_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'cantidad_links' => '5',
+      'cantidad_links' => '10',
       'tipo_de_listado' => 'recientes',
       'tipos_de_contenido' => 'tramite',
-      'formato_de_listado' => 'badistro_bloques_listado_con_imagen',
-      'titulo' => 'Los más vistos',
+      'formato_de_listado' => 'badistro_bloques_listado',
+      'titulo' => 'Trámites',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
@@ -109,6 +110,7 @@ function badistro_cck_default_page_manager_handlers() {
       'tipo_noticia' => FALSE,
       'tipo_tramite' => array(),
       'orientacion_de_listado' => 'vertical',
+      'todos_los_items' => 0,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -122,18 +124,26 @@ function badistro_cck_default_page_manager_handlers() {
     $display->content['new-3fbe33b2-c1e5-4897-a1b6-44750154bfb0'] = $pane;
     $display->panels['body-middle'][0] = 'new-3fbe33b2-c1e5-4897-a1b6-44750154bfb0';
     $pane = new stdClass();
-    $pane->pid = 'new-6d9c5cb3-0dd4-4f28-b97b-29310906b5ff';
+    $pane->pid = 'new-c41601e5-ffb3-4647-85b2-b7595e597049';
     $pane->panel = 'body-right';
-    $pane->type = 'imagen';
-    $pane->subtype = 'imagen';
+    $pane->type = 'redes_sociales';
+    $pane->subtype = 'redes_sociales';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'formato' => '',
+      'titulo' => 'Integra tus redes sociales',
+      'tipo_widget' => 'timeline',
+      'tipo_widget_timeline' => 'facebook',
+      'fb_page_url' => 'https://www.facebook.com/facebook',
+      'fb_altura' => '500',
+      'fb_mostrar_post' => 1,
+      'fb_mostrar_fotos_amigos' => 1,
+      'fb_ocultar_portada' => 0,
+      'tw_widget_id' => '',
+      'tw_screen_name' => '',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
-      'imagen' => '10',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -143,9 +153,9 @@ function badistro_cck_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '6d9c5cb3-0dd4-4f28-b97b-29310906b5ff';
-    $display->content['new-6d9c5cb3-0dd4-4f28-b97b-29310906b5ff'] = $pane;
-    $display->panels['body-right'][0] = 'new-6d9c5cb3-0dd4-4f28-b97b-29310906b5ff';
+    $pane->uuid = 'c41601e5-ffb3-4647-85b2-b7595e597049';
+    $display->content['new-c41601e5-ffb3-4647-85b2-b7595e597049'] = $pane;
+    $display->panels['body-right'][0] = 'new-c41601e5-ffb3-4647-85b2-b7595e597049';
     $pane = new stdClass();
     $pane->pid = 'new-24e2eacb-5917-4543-ad69-4f47b32757bf';
     $pane->panel = 'full';
@@ -181,13 +191,22 @@ function badistro_cck_default_page_manager_handlers() {
     $display->content['new-24e2eacb-5917-4543-ad69-4f47b32757bf'] = $pane;
     $display->panels['full'][0] = 'new-24e2eacb-5917-4543-ad69-4f47b32757bf';
     $pane = new stdClass();
-    $pane->pid = 'new-d2ed8865-65db-46bd-87ea-15add9d86fce';
+    $pane->pid = 'new-55a013a7-62b2-492d-a124-d1e9ee22d4dc';
     $pane->panel = 'top';
-    $pane->type = 'separador';
-    $pane->subtype = 'separador';
+    $pane->type = 'alerta';
+    $pane->subtype = 'alerta';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'tipo' => 'info',
+      'texto' => array(
+        'value' => '<strong>Bienvenido.</strong> Comienza a crear contenido ahora mismo desde <a href="node/add" title="Crear contenido" alt="Crear contenido">aquí</a>',
+        'format' => 'full_html',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -196,25 +215,26 @@ function badistro_cck_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'd2ed8865-65db-46bd-87ea-15add9d86fce';
-    $display->content['new-d2ed8865-65db-46bd-87ea-15add9d86fce'] = $pane;
-    $display->panels['top'][0] = 'new-d2ed8865-65db-46bd-87ea-15add9d86fce';
+    $pane->uuid = '55a013a7-62b2-492d-a124-d1e9ee22d4dc';
+    $display->content['new-55a013a7-62b2-492d-a124-d1e9ee22d4dc'] = $pane;
+    $display->panels['top'][0] = 'new-55a013a7-62b2-492d-a124-d1e9ee22d4dc';
     $pane = new stdClass();
-    $pane->pid = 'new-b66fb012-c5df-4283-93c5-6f123fe06d8b';
+    $pane->pid = 'new-d90b4d9c-e8d8-4624-a949-d07a8a4e24da';
     $pane->panel = 'top';
-    $pane->type = 'alerta';
-    $pane->subtype = 'alerta';
+    $pane->type = 'shortcut';
+    $pane->subtype = 'shortcut';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'tipo' => 'danger',
-      'texto' => array(
-        'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        'format' => 'full_html',
-      ),
+      'color_fondo' => 'shortcut-verde',
+      'icono' => 'glyphicon-certificate',
+      'titulo' => 'Información útil',
+      'texto' => '¿Tienes dudas de cómo funciona? Click aquí',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
+      'referencia' => FALSE,
+      'link' => 'badistro-tutorial',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -224,171 +244,9 @@ function badistro_cck_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'b66fb012-c5df-4283-93c5-6f123fe06d8b';
-    $display->content['new-b66fb012-c5df-4283-93c5-6f123fe06d8b'] = $pane;
-    $display->panels['top'][1] = 'new-b66fb012-c5df-4283-93c5-6f123fe06d8b';
-    $pane = new stdClass();
-    $pane->pid = 'new-55a013a7-62b2-492d-a124-d1e9ee22d4dc';
-    $pane->panel = 'top';
-    $pane->type = 'alerta';
-    $pane->subtype = 'alerta';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'tipo' => 'success',
-      'texto' => array(
-        'value' => 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
-        'format' => 'full_html',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '55a013a7-62b2-492d-a124-d1e9ee22d4dc';
-    $display->content['new-55a013a7-62b2-492d-a124-d1e9ee22d4dc'] = $pane;
-    $display->panels['top'][2] = 'new-55a013a7-62b2-492d-a124-d1e9ee22d4dc';
-    $pane = new stdClass();
-    $pane->pid = 'new-d3a5e284-cc4c-42f5-82f1-1d8cabddd45b';
-    $pane->panel = 'top';
-    $pane->type = 'alerta';
-    $pane->subtype = 'alerta';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'tipo' => 'info',
-      'texto' => array(
-        'value' => 'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        'format' => 'full_html',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = 'd3a5e284-cc4c-42f5-82f1-1d8cabddd45b';
-    $display->content['new-d3a5e284-cc4c-42f5-82f1-1d8cabddd45b'] = $pane;
-    $display->panels['top'][3] = 'new-d3a5e284-cc4c-42f5-82f1-1d8cabddd45b';
-    $pane = new stdClass();
-    $pane->pid = 'new-154b9166-be78-45e6-8fb2-f0fa65bf56a7';
-    $pane->panel = 'top';
-    $pane->type = 'shortcut';
-    $pane->subtype = 'shortcut';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'tipos_de_contenido' => array(
-        'area' => 'area',
-        'noticia' => 0,
-        'page' => 0,
-        'tramite' => 0,
-      ),
-      'cantidad_de_slides' => '3',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-      'color_fondo' => 'shortcut-rojo',
-      'icono' => 'glyphicon-paperclip',
-      'titulo' => 'Sunt in culpa',
-      'texto' => 'lorem ipsumo bla blah',
-      'referencia' => array(
-        'entity_id' => '3',
-        'entity_label' => 'Gluten-free pop-up next level est',
-        'entity_type' => 'node',
-        'entity_bundle' => 'noticia',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '154b9166-be78-45e6-8fb2-f0fa65bf56a7';
-    $display->content['new-154b9166-be78-45e6-8fb2-f0fa65bf56a7'] = $pane;
-    $display->panels['top'][4] = 'new-154b9166-be78-45e6-8fb2-f0fa65bf56a7';
-    $pane = new stdClass();
-    $pane->pid = 'new-d90b4d9c-e8d8-4624-a949-d07a8a4e24da';
-    $pane->panel = 'top';
-    $pane->type = 'shortcut';
-    $pane->subtype = 'shortcut';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'color_fondo' => 'shortcut-azul',
-      'icono' => 'glyphicon-home',
-      'titulo' => 'Anim id est laborum.',
-      'texto' => 'Qui officia deserunt mollit anim id est laborum.',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-      'referencia' => array(
-        'entity_id' => '2',
-        'entity_label' => 'Fusce convallis elit fringilla convallis dictum.',
-        'entity_type' => 'node',
-        'entity_bundle' => 'tramite',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
     $pane->uuid = 'd90b4d9c-e8d8-4624-a949-d07a8a4e24da';
     $display->content['new-d90b4d9c-e8d8-4624-a949-d07a8a4e24da'] = $pane;
-    $display->panels['top'][5] = 'new-d90b4d9c-e8d8-4624-a949-d07a8a4e24da';
-    $pane = new stdClass();
-    $pane->pid = 'new-1f38c565-29bf-4ce8-ac57-705a1c73a3ef';
-    $pane->panel = 'top';
-    $pane->type = 'shortcut';
-    $pane->subtype = 'shortcut';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'color_fondo' => 'shortcut-verde',
-      'icono' => 'glyphicon-home',
-      'titulo' => 'Excepteur sint',
-      'texto' => 'Occaecat cupidatat non proident',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-      'referencia' => array(
-        'entity_id' => '1',
-        'entity_label' => 'Lorem ipsum dolor sit amet',
-        'entity_type' => 'node',
-        'entity_bundle' => 'noticia',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->locks = array();
-    $pane->uuid = '1f38c565-29bf-4ce8-ac57-705a1c73a3ef';
-    $display->content['new-1f38c565-29bf-4ce8-ac57-705a1c73a3ef'] = $pane;
-    $display->panels['top'][6] = 'new-1f38c565-29bf-4ce8-ac57-705a1c73a3ef';
+    $display->panels['top'][1] = 'new-d90b4d9c-e8d8-4624-a949-d07a8a4e24da';
     $pane = new stdClass();
     $pane->pid = 'new-db203264-eddb-4108-884f-8ea483b15a03';
     $pane->panel = 'top';
@@ -398,18 +256,14 @@ function badistro_cck_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'color_fondo' => 'shortcut-naranja',
-      'icono' => 'glyphicon-home',
-      'titulo' => 'Ut enim ad minim veniam',
-      'texto' => 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
+      'icono' => 'glyphicon-list-alt',
+      'titulo' => 'Crea contenido',
+      'texto' => 'Agrega noticias, trámites, áreas o páginas',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
-      'referencia' => array(
-        'entity_id' => '3',
-        'entity_label' => 'Gluten-free pop-up next level est',
-        'entity_type' => 'node',
-        'entity_bundle' => 'noticia',
-      ),
+      'referencia' => FALSE,
+      'link' => 'node/add',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -417,11 +271,69 @@ function badistro_cck_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = 'db203264-eddb-4108-884f-8ea483b15a03';
     $display->content['new-db203264-eddb-4108-884f-8ea483b15a03'] = $pane;
-    $display->panels['top'][7] = 'new-db203264-eddb-4108-884f-8ea483b15a03';
+    $display->panels['top'][2] = 'new-db203264-eddb-4108-884f-8ea483b15a03';
+    $pane = new stdClass();
+    $pane->pid = 'new-1f38c565-29bf-4ce8-ac57-705a1c73a3ef';
+    $pane->panel = 'top';
+    $pane->type = 'shortcut';
+    $pane->subtype = 'shortcut';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'color_fondo' => 'shortcut-naranja',
+      'icono' => 'glyphicon-home',
+      'titulo' => 'Personaliza la página principal',
+      'texto' => 'Agrega contenido y/o modifica el diseño',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+      'referencia' => FALSE,
+      'link' => 'admin/structure/pages/edit/pm_existing_pages-node_overview',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '1f38c565-29bf-4ce8-ac57-705a1c73a3ef';
+    $display->content['new-1f38c565-29bf-4ce8-ac57-705a1c73a3ef'] = $pane;
+    $display->panels['top'][3] = 'new-1f38c565-29bf-4ce8-ac57-705a1c73a3ef';
+    $pane = new stdClass();
+    $pane->pid = 'new-12b89fbf-7984-4d96-9553-8b8f9b09957f';
+    $pane->panel = 'top';
+    $pane->type = 'shortcut';
+    $pane->subtype = 'shortcut';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'color_fondo' => 'shortcut-azul',
+      'icono' => 'glyphicon-certificate',
+      'titulo' => 'Modifica cómo ves el contenido',
+      'texto' => '',
+      'referencia' => FALSE,
+      'link' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '12b89fbf-7984-4d96-9553-8b8f9b09957f';
+    $display->content['new-12b89fbf-7984-4d96-9553-8b8f9b09957f'] = $pane;
+    $display->panels['top'][4] = 'new-12b89fbf-7984-4d96-9553-8b8f9b09957f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

@@ -94,90 +94,6 @@ function badistro_cck_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-acerca-de-este-sitio_poltica-de-privacidad:node/6
-  $menu_links['menu-acerca-de-este-sitio_poltica-de-privacidad:node/6'] = array(
-    'menu_name' => 'menu-acerca-de-este-sitio',
-    'link_path' => 'node/6',
-    'router_path' => 'node/%',
-    'link_title' => 'Política de privacidad',
-    'options' => array(
-      'icon' => array(
-        'icon' => '',
-        'position' => 'title_before',
-        'title_wrapper_element' => 'span',
-        'title_wrapper_class' => 'title',
-        'breadcrumb' => 0,
-        'title_wrapper' => 0,
-      ),
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-acerca-de-este-sitio_poltica-de-privacidad:node/6',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-acerca-de-este-sitio_trminos-y-condiciones:node/6
-  $menu_links['menu-acerca-de-este-sitio_trminos-y-condiciones:node/6'] = array(
-    'menu_name' => 'menu-acerca-de-este-sitio',
-    'link_path' => 'node/6',
-    'router_path' => 'node/%',
-    'link_title' => 'Términos y condiciones',
-    'options' => array(
-      'icon' => array(
-        'icon' => '',
-        'position' => 'title_before',
-        'title_wrapper_element' => 'span',
-        'title_wrapper_class' => 'title',
-        'breadcrumb' => 0,
-        'title_wrapper' => 0,
-      ),
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-acerca-de-este-sitio_trminos-y-condiciones:node/6',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-paginas-relacionadas_google:http://www.google.com
-  $menu_links['menu-paginas-relacionadas_google:http://www.google.com'] = array(
-    'menu_name' => 'menu-paginas-relacionadas',
-    'link_path' => 'http://www.google.com',
-    'router_path' => '',
-    'link_title' => 'Google',
-    'options' => array(
-      'icon' => array(
-        'icon' => '',
-        'position' => 'title_before',
-        'title_wrapper_element' => 'span',
-        'title_wrapper_class' => 'title',
-        'breadcrumb' => 0,
-        'title_wrapper' => 0,
-      ),
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-paginas-relacionadas_google:http://www.google.com',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
   // Exported menu link: menu-redes-sociales_facebook:http://www.facebook.com/gcba
   $menu_links['menu-redes-sociales_facebook:http://www.facebook.com/gcba'] = array(
     'menu_name' => 'menu-redes-sociales',
@@ -239,7 +155,7 @@ function badistro_cck_menu_default_menu_links() {
     'menu_name' => 'menu-redes-sociales',
     'link_path' => 'https://plus.google.com/+GobiernodelaCiudaddeBuenosAires/',
     'router_path' => '',
-    'link_title' => 'Google+',
+    'link_title' => 'Google',
     'options' => array(
       'icon' => array(
         'icon' => '',
@@ -352,13 +268,10 @@ function badistro_cck_menu_default_menu_links() {
   t('Facebook');
   t('Flickr');
   t('Google');
-  t('Google+');
   t('Noticias');
-  t('Política de privacidad');
   t('RSS');
   t('Trámites');
   t('Twitter');
-  t('Términos y condiciones');
   t('Youtube');
   t('Áreas');
 
