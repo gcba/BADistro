@@ -423,7 +423,7 @@ footer .links-rel li:nth-child(1){
     text-indent: -9999px;
 }
 
-#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-971 a{
+#block-menu-menu-redes-sociales ul.menu.nav li a.menu-redes-sociales-Facebook{
     background-image: url(../img/social-fb.png);
     background-image: url(../img/social-fb.svg), none;
     background-size: cover;
@@ -431,14 +431,14 @@ footer .links-rel li:nth-child(1){
 }
 
 
-#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-969 a{
+#block-menu-menu-redes-sociales ul.menu.nav li a.menu-redes-sociales-Twitter{
     background-image: url(../img/social-tw.png);
     background-image: url(../img/social-tw.svg), none;
     background-size: cover;
     background-color: transparent;
 }
 
-#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-966 a{
+#block-menu-menu-redes-sociales ul.menu.nav li a.menu-redes-sociales-Google{
     background-image: url(../img/social-gp.png);
     background-image: url(../img/social-gp.svg), none;
     background-size: cover;
@@ -446,14 +446,14 @@ footer .links-rel li:nth-child(1){
 }
 
 
-#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-970 a{
+#block-menu-menu-redes-sociales ul.menu.nav li a.menu-redes-sociales-Youtube{
     background-image: url(../img/social-yt.png);
     background-image: url(../img/social-yt.svg), none;
     background-size: cover;
     background-color: transparent;
 }
 
-#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-967 a{
+#block-menu-menu-redes-sociales ul.menu.nav li a.menu-redes-sociales-Flickr{
     background-image: url(../img/social-fl.png);
     background-image: url(../img/social-fl.svg), none;
     background-size: cover;
@@ -461,7 +461,7 @@ footer .links-rel li:nth-child(1){
 }
 
 
-#block-menu-menu-redes-sociales ul.menu.nav li#menu-redes-sociales-968 a{
+#block-menu-menu-redes-sociales ul.menu.nav li a.menu-redes-sociales-RSS{
     background-image: url(../img/social-rss.png);
     background-image: url(../img/social-rss.svg), none;
     background-size: cover;
