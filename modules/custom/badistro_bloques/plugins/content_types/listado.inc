@@ -179,7 +179,7 @@ function badistro_bloques_listado_render($subtype, $conf, $panel_args, $context 
   foreach ($view->result as $key => $item) {
     $links[] = crearLink($item, $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"], $conf);
   }
-  $block->content = sizeof($links) > 0 ? theme(
+  $block->content = !empty($links) && sizeof($links) > 0 ? theme(
     $conf["formato_de_listado"] . '_' . $conf["orientacion_de_listado"],
     array(
       "titulo" => $conf["titulo"],
