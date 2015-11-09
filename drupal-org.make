@@ -19,6 +19,8 @@ projects[entityreference_autocomplete][version] = 1.10
 
 projects[features][version] = 2.6
 
+projects[features_extra][version] = 1.0
+
 projects[field_permissions][version] = 1.0-beta2
 
 projects[file_entity][version] = 2.0-beta2

@@ -23,6 +23,7 @@ dependencies[] = entity
 dependencies[] = entityreference
 dependencies[] = entityreference_autocomplete
 dependencies[] = features
+dependencies[] = features_extra
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = help
