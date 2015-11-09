@@ -159,7 +159,8 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
         'color' => $conf['color_fondo'],
         'icono' => $conf['icono'],
         'texto' => $conf['texto'],
-        'titulo' => $conf['titulo']
+        'titulo' => $conf['titulo'],
+        'css' => ''
       )
     ),
     !empty($conf['referencia']) ? 'node/' . $conf['referencia']['entity_id'] : $conf['link'],
@@ -178,7 +179,8 @@ function badistro_bloques_shortcut_render($subtype, $conf, $panel_args, $context
         'color' => $conf['color_fondo'],
         'icono' => $conf['icono'],
         'texto' => $conf['texto'],
-        'titulo' => $conf['titulo']
+        'titulo' => $conf['titulo'],
+        'css' => 'col-sm-6 col-md-3'
       )
   );
   return $block;
