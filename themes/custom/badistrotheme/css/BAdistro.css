@@ -145,7 +145,20 @@ form#search-block-form {
     width: 70%;
 }
 
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: static;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
 /*end nav menu*/
+
+
+/*carousel*/
+#badistro-carousel{
+  margin-top: -32px;
+}
 
 /* separador bloque content */
 .panel-panel.panel-panel-full-width.clearfix{
@@ -341,9 +354,6 @@ form#search-block-form {
  height: 40px;
 }
 
-.separator-bloque-contenido{
-  height: 120px;
-}
 
 .banner img{
   display: block;
