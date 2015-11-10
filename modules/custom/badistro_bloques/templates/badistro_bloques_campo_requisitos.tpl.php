@@ -3,6 +3,6 @@
     <h3 class="panel-title">Requisitos</h3>
   </div>
   <div class="panel-body">
-    <p>Requisitos del trámite</p>
+    <p><?php print $campo; ?></p>
   </div>
 </div>
