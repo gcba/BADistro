@@ -13,6 +13,7 @@
 		</div>
 		<!-- Sidebar content -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
+			<?php include "badistro_bloques_precio_tramite.tpl.php"; ?>
 			<div><?php print $content['sidebar']; ?></div>
 		</div>
 		<!-- Bottom content -->
