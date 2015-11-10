@@ -3,6 +3,8 @@
 * Implements hook_ctools_plugin_directory().
 */
 
+include_once 'badistro_bloques.inc';
+
 function badistro_bloques_ctools_plugin_directory($owner, $plugin_type) {
    if ($owner == 'ctools' && $plugin_type == 'content_types') {
      return 'plugins/' . $plugin_type;
