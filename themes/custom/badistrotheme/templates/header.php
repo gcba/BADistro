@@ -1,4 +1,4 @@
-<nav class="navbar transparent navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="navbar-inner">
     <div class="container-fluid">
       <div class="container">
@@ -39,3 +39,12 @@
     </div>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
