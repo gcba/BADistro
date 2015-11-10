@@ -19,6 +19,38 @@ function badistro_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_carrousel'
     ),
+    'badistro_bloques_campo_categoria_noticia' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_categoria_noticia'
+    ),
+    'badistro_bloques_campo_costo' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_costo'
+    ),
+    'badistro_bloques_campo_links_relacionados' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_links_relacionados'
+    ),
+    'badistro_bloques_campo_paginas_relacionadas' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_paginas_relacionadas'
+    ),
+    'badistro_bloques_campo_requisitos' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_requisitos'
+    ),
+    'badistro_bloques_campo_siglas_area' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_siglas_area'
+    ),
+    'badistro_bloques_campo_tags' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_tags'
+    ),
+    'badistro_bloques_campo_tipo_tramite' => array(
+      'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
+      'template' => 'badistro_bloques_campo_tipo_tramite'
+    ),
     'badistro_bloques_galeria_imagenes_min' => array(
       'path' => drupal_get_path('module', 'badistro_bloques') . '/templates',
       'template' => 'badistro_bloques_galeria_imagenes_min'
