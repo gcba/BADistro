@@ -73,6 +73,7 @@ features[menu_links][] = menu-redes-sociales_twitter:http://www.twitter.com/gcba
 features[menu_links][] = menu-redes-sociales_youtube:http://www.youtube.com/user/GCBA
 features[page_manager_handlers][] = pm_existing_pages_node_overview__pagina_principal
 features[page_manager_pages][] = areas
+features[page_manager_pages][] = badistro_tutorial
 features[page_manager_pages][] = noticias
 features[page_manager_pages][] = tramites
 features[taxonomy][] = tags
