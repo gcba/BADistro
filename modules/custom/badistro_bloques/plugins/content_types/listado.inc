@@ -234,19 +234,3 @@ function crearLink($item, $theme, $conf = NULL){
     )
   );
 }
-
-function esNodo(){
-  return arg(0) == 'node' && is_numeric(arg(1));
-}
-function esArea(){
-  return (esNodo() && es('area', node_load(arg(1))));
-}
-function esTramite(){
-  return (esNodo() && es('tramite', node_load(arg(1))));
-}
-function esNoticia(){
-  return (esNodo() && es('noticia', node_load(arg(1))));
-}
-function es($tipo, $nodo){
-  return ($nodo->type == $tipo);
-}
