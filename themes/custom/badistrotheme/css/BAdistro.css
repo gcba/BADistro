@@ -10,6 +10,9 @@ pre {
   padding: 0; 
 }
 
+body{
+  margin-top:130px;
+}
 /* Font Config */
 
 
@@ -114,16 +117,14 @@ a {
     background-color: #CCC;
 }
 
-body.toolbar.logged-in .navbar-fixed-top {
-    top: 64px;
-}
+
 
 body.toolbar .navbar-fixed-top {
     top: 0;
 }
 
 .logo-BADistro{
-  margin: 33px 0 0 33px;
+  margin: 40px 0 0 10px;
   
 }
 
@@ -145,19 +146,28 @@ form#search-block-form {
     width: 70%;
 }
 
-.navbar-fixed-top, .navbar-fixed-bottom {
-    position: static;
+.navbar-fixed-top .navbar-fixed-bottom {
+    position: fixed;
     right: 0;
     left: 0;
     z-index: 1030;
 }
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    padding-bottom: 10px;
+    
+}
+
 
 /*end nav menu*/
 
 
 /*carousel*/
 #badistro-carousel{
-  margin-top: -32px;
+  margin-top: -20px;
 }
 
 /* separador bloque content */
