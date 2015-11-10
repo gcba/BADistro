@@ -1,3 +1,4 @@
+<h5>Etiquetas </h5>
 <span class="label label-default">Default</span>
 <span class="label label-primary">Primary</span>
 <span class="label label-success">Success</span>

@@ -65,6 +65,6 @@ function badistro_bloques_campo_edit_form_submit($form, &$form_state) {
 function badistro_bloques_campo_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
-  $block->content = theme('badistro_bloques_separador');
+  $block->content = theme('badistro_bloques_campo_' . $conf['campo']);
   return $block;
 }
