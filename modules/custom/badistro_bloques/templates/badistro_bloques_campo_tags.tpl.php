@@ -1,5 +1,5 @@
 <div class="pane-campo-tags">
-  <small>Etiquetas</small>
+  <h5>Etiquetas</h5>
   <div class="clearfix">
   <?php foreach ($campo as $value) { ?>
     <span class="label label-default"><?php print $value; ?></span>
