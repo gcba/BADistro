@@ -557,8 +557,8 @@ function badistro_cck_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'tag' => 'h1',
-      'texto' => '',
-      'sobreescribir_titulo' => 0,
+      'texto' => 'Tutorial',
+      'sobreescribir_titulo' => 1,
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
