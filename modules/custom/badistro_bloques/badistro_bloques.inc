@@ -92,7 +92,7 @@ function obtenerCampo($nodo, $tipo_campo) {
       $campo = isset($campo) ? $campo->name : NULL;
       break;
     case 'categoria_noticia':
-      $campo = field_get_items('node', $nodo, 'field_noticia_categoria', NULL);
+      $campo = field_get_items('node', $nodo, 'field_categoria', NULL);
       $campo = isset($campo) ? taxonomy_term_load($campo[0]["target_id"]) : NULL;
       $campo = isset($campo) ? $campo->name : NULL;
       break;
