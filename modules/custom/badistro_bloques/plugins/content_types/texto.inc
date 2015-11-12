@@ -66,16 +66,24 @@ function badistro_bloques_texto_edit_form_submit($form, &$form_state) {
 function badistro_bloques_texto_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = '';
-  $node = nodoDisponible($conf['sobreescribir']) ? node_load(arg(1)) : '';
-  $texto = field_get_items('node', $node, 'body', NULL);
-  $texto = $conf['cuerpo_o_resumen'] == 'body' ? $texto[0]['safe_value'] : $texto[0]['safe_summary'] ;
+  $texto = $conf['sobreescribir'] ? $conf['texto'] : (esNodo() ? field_get_items('node', node_load(arg(1)), 'body', NULL) : '');
+  $texto = $conf['sobreescribir'] ? $texto['value'] : ($conf['cuerpo_o_resumen'] == 'body' ? $texto[0]['safe_value'] : resumen($texto));
+
   $block->content = theme(
     'badistro_bloques_texto',
     array(
-      'tag' => theme('html_tag', array('element' => array('#tag' => 'div', '#attributes' => array('class' => $conf['destacado'] ? 'lead' : ''), '#value' => nodoDisponible($conf['sobreescribir']) ? $texto : $conf['texto'],
-      ),
-    )
-  )
+      'tag' => theme(
+        'html_tag',
+        array(
+          'element' => array(
+            '#tag' => 'div',
+            '#attributes' => array(
+              'class' => $conf['destacado'] ? 'lead' : ''
+            ),
+            '#value' => $texto,
+          ),
+        )
+      )
     )
   );
   return $block;
@@ -91,4 +99,7 @@ function badistro_bloques_texto_admin_info($subtype, $conf, $contexts){
 }
 function nodoDisponible($sobreescribir){
   return (!$sobreescribir && arg(0) == 'node' && is_numeric(arg(1)));
+}
+function resumen($campo){
+  return empty($campo[0]['safe_summary']) ? views_trim_text(array('max_length' => 200, 'ellipsis' => TRUE, 'word_boundary' => TRUE,'html' => TRUE), $campo[0]['safe_value']) : $campo[0]['safe_summary'];
 }
