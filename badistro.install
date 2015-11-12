@@ -22,6 +22,12 @@ function badistro_install_tasks(){
     'type' => 'normal',
   );
 
+  $tasks['revert_features'] = array(
+    'display_name' => t('Revertir Features'),
+    'display' => TRUE,
+    'type' => 'normal',
+  );
+
   return $tasks;
 }
 
@@ -53,4 +59,23 @@ function enable_pages(){
     $function($page, FALSE); 
     menu_rebuild();
   }
+}
+
+function revert_features(){
+  features_revert(
+    array(
+      'fe_block_settings' => array(
+        'menu-devel',
+        'menu-menu-acerca-de-este-sitio',
+        'menu-menu-paginas-relacionadas',
+        'menu-menu-redes-sociales',
+        'search-form',
+        'system-main',
+        'system-main-menu',
+        'system-management',
+        'system-navigation',
+        'system-user-menu',
+      )
+    )
+  );
 }
