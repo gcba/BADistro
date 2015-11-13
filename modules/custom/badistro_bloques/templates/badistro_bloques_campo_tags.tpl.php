@@ -1,3 +1,4 @@
+<?php if(sizeof($campo) > 0) { ?>
 <div class="pane-campo-tags">
   <h5>Etiquetas</h5>
   <div class="clearfix">
@@ -6,3 +7,4 @@
   <?php } ?>
   </div>
 </div>
+<?php } ?>
