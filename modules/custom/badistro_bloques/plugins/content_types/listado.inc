@@ -203,9 +203,9 @@ function crearLink($item, $theme, $conf = NULL){
   $link->imagen = field_get_items('node', $item->_field_data["nid"]["entity"], 'field_featured_image', NULL);
   $link->imagen = theme_image_style(array('style_name' => 'list', 'path' => $link->imagen[0]["uri"], 'width' => '', 'height' => '', 'attributes' => array('class' => array('media-object', 'img-rounded'))));
   $link->type = $item->_field_data["nid"]["entity"]->type;
-  $link->category = isset($item->_field_data["nid"]["entity"]) && $link->type == 'tramite' ? field_get_items('node', $item->_field_data["nid"]["entity"], 'field_tramite_tipo', NULL) : NULL;
+  $link->category = ($link->type == 'tramite' || $link->type == 'noticia') && isset($item->_field_data["nid"]["entity"]) ? obtenerTaxonomia($item, $link->type) : NULL;
   $link->category = isset($link->category) ? taxonomy_term_load($link->category[0]["target_id"]) : NULL;
-  $link->category = isset($link->category) ? l($link->category->name, 'taxonomy/term/' . $link->category->tid) : NULL;
+  $link->category = isset($link->category) && !empty($link->category) ? l($link->category->name, 'taxonomy/term/' . $link->category->tid) : NULL;
 
   return l(
     theme(
@@ -233,4 +233,8 @@ function crearLink($item, $theme, $conf = NULL){
       )
     )
   );
+}
+
+function obtenerTaxonomia($item, $tipo){
+  return $tipo == 'tramite' ? field_get_items('node', $item->_field_data["nid"]["entity"], 'field_tramite_tipo', NULL) : field_get_items('node', $item->_field_data["nid"]["entity"], 'field_categoria', NULL);
 }
