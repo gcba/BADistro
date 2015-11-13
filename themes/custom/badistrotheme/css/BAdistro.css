@@ -550,24 +550,33 @@ footer .links-rel li:nth-child(1){
 .page-node-edit {
   margin:0 10%;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .page-node-add .main-container,
   .page-node-edit #block-system-main{
     width: 750px;
     margin-left:auto;
     margin-right: auto;
   }
+  body.toolbar-drawer {
+    padding-top: 250px!important;
+  }
 }
-@media (min-width: 992px) {
+@media (min-width: 768px and max-width: 992px) {
   .page-node-add .main-container,
   .page-node-edit #block-system-main{
     width: 970px;
   }
+  body.toolbar-drawer {
+    padding-top: 250px!important;
+  }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .page-node-add .main-container,
   .page-node-edit #block-system-main{
     width: 1170px;
+  }
+  body.toolbar-drawer {
+    padding-top: 184px!important;
   }
 }
 
