@@ -10,9 +10,6 @@ pre {
   padding: 0; 
 }
 
-body{
-  margin-top:130px;
-}
 /* Font Config */
 
 
@@ -553,11 +550,29 @@ footer .links-rel li:nth-child(1){
 .page-node-edit {
   margin:0 10%;
 }
-
-.page-node-add {
-  margin: 3% 10%;
-
+@media (min-width: 768px) {
+  .page-node-add .main-container,
+  .page-node-edit #block-system-main{
+    width: 750px;
+    margin-left:auto;
+    margin-right: auto;
+  }
 }
+@media (min-width: 992px) {
+  .page-node-add .main-container,
+  .page-node-edit #block-system-main{
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .page-node-add .main-container,
+  .page-node-edit #block-system-main{
+    width: 1170px;
+  }
+}
+
+
+
 
 .page-node-edit #block-system-main{
   margin:3% 10%;
