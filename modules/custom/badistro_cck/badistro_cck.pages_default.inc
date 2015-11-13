@@ -528,7 +528,119 @@ function badistro_cck_default_page_manager_pages() {
     $pane->configuration = array(
       'destacado' => 0,
       'texto' => array(
-        'value' => 'Crear contenido',
+        'value' => '<h2>Como personalizar tu BAdistro</h2>
+<br/><br/>
+<ol>
+<li><h3>¿Cómo personalizar tu página de Inicio? </h3>
+<ul>
+<li>Ir a Estructura / Páginas / pm_existing_pages-node_overview / Editar</li>
+<li>Seleccionar la estructura deseada en Layout </li>
+</ul> 
+
+<br/>
+
+</li><li><h3>¿Como crear un contenido (Noticia, Página, Trámite, Área)?</h3>
+<br/>
+<p>Ir a Contenido / Agregar Contenido. Seleccionar tipo de contenido a crear.</p>
+<br/>
+
+<br/>
+
+</li><li><h3>¿Cómo personalizar tus páginas de Noticia, Área, Trámite? </h3>
+<ul><li>Ir a Estructura / Páginas / node_view y Editar</li>
+<li>Seleccionar Noticia, Trámite, Área, Página</li>
+</ul>
+<br/>
+
+</li><li><h3>¿Cómo crear el contenido de tus layouts? </h3>
+<ul>
+<li>Ir a Estructura / Páginas / node_view / Editar </li>
+<li>Seleccionar Página, Área, Trámite, Noticia </li>
+<li>Seleccionar tu layout </a></li>
+<li>Seleccionar tu contenido donde: <strong> Ancho máximo </strong> es un área definida para imagen destacada o carrousel del ancho de tu navegador, y <strong>contenido, columnas derecha, centro o izquierda y sidebar</strong> donde podrás incluír tus bloques de alerta, shortcuts, listados, campos de etiquetas, contenidos relacionados solo haciendo clic en agregar contenido.</li>
+
+</ul>
+<br/>
+
+</li><li><h3>¿Cómo crear tus categorías, etiquetas, tipos de trámites? </h3>
+<ul>
+<li>Ir a Estructura / Taxonomía</li>
+<li>Agregar vocabulario</li>
+<li>Agregar término</li>
+</ul>
+
+<br/>
+
+</li><li><h3>¿Cómo crear tus menús?</h3>
+<ul>
+<li>Ir a Estructura / Menú y seleccionar crear nuevo. En este apartado podrás además agregar, listar y organizar tus ítems.</li>
+</ul>
+
+<br/><br/>
+</li><li><h3>¿Cómo personalizar tus listados?</h3>
+<ul>
+<li>Ir a Estructura / Páginas / Node_view. Seleccionar tipo de página</li>
+<li>Ir a Contenido / Agregar contenido / BAdistro / Listados</li>
+<li>Allí se puede seleccionar el tipo de contenido, tipo de listado, orientación vertical u horizontal del mismo, y si el listado mostrará solo texto, texto con imagen o texto destacado </li>
+
+</ul>
+
+<br/><br/>
+</li><li><h3>¿Cómo integrar a tus páginas los widgets y shares de redes sociales?</h3>
+<ul>
+<li>Ir a Estructura / Páginas / Node_view. Seleccionar tipo de página</li>
+<li>Ir a Contenido / Agregar contenido / BAdistro / Redes Sociales</li>
+<li>Seleccionar la opción deseada (Twitter o Facebook) en formato "compatir" o "timeline"</li>
+</ul>
+
+
+
+<br/><br/>
+</li><li><h3>¿Cómo personalizar tu footer?</h3>
+<ul>
+<li>Solo debes editar los bloques del footer y allí encontrarás los componentes para agregar o quitar iconografía y links de redes sociales, y links relacionados </li>
+</ul>
+<br/>
+
+
+<br/><br/>
+</li><li><h3>¿Cómo personalizar tu carrousel de imágenes?</h3>
+<ul>
+<li>Ir a Estructura / Páginas / Node_view. Seleccionar tipo de página</li>
+<li>Ir a Contenido / Agregar contenido / BAdistro / Carrousel</li>
+<li>Allí se puede seleccionar la cantidad de diapositivas que se mostrarán asociadadas un contenido a elegir (Noticia, Trámite, Área) </li>
+
+</ul>
+
+
+<br/><br/>
+</li><li><h3>¿Cómo personalizar tu imagen destacada?</h3>
+<ul>
+<li>Ir a Estructura / Páginas / Node_view. Seleccionar tipo de página</li>
+<li>Ir a Contenido / Agregar contenido / BAdistro / Imagen destacada</li>
+<li>Seleccionar imagen (min-width:1900px)</li>
+
+</ul>
+
+<br/>
+</li><li><h3>¿Cómo personalizar tu galería de imágenes?</h3>
+<ul>
+<li>Ir a Estructura / Páginas / Node_view. Seleccionar tipo de página</li>
+<li>Ir a Contenido / Agregar contenido / BAdistro / Galería de Imágenes</li>
+<li>Seleccionar imagen</li>
+
+</ul>
+
+
+<br/>
+</li><li><h3>¿Cómo personalizar tus atajos?</h3>
+<ul>
+<li>Ir a Estructura / Páginas / Node_view. Seleccionar tipo de página</li>
+<li>Ir a Contenido / Agregar contenido / BAdistro / Atajo</li>
+<li>Crear tu atajo agregando los campos determinados</li>
+</ul>
+</li>
+</ol>',
         'format' => 'full_html',
       ),
       'sobreescribir' => 1,
@@ -557,7 +669,7 @@ function badistro_cck_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'tag' => 'h1',
-      'texto' => 'Tutorial',
+      'texto' => 'Bienvenido a BAdistro',
       'sobreescribir_titulo' => 1,
       'override_title' => 0,
       'override_title_text' => '',
