@@ -80,7 +80,11 @@ function badistro_cck_views_default_views() {
   $handler->display->display_options['arguments']['type']['table'] = 'node';
   $handler->display->display_options['arguments']['type']['field'] = 'type';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['type']['limit'] = '0';
+  $handler->display->display_options['arguments']['type']['break_phrase'] = TRUE;
   /* Contextual filter: Content: Categoría (field_categoria) */
   $handler->display->display_options['arguments']['field_categoria_target_id']['id'] = 'field_categoria_target_id';
   $handler->display->display_options['arguments']['field_categoria_target_id']['table'] = 'field_data_field_categoria';
