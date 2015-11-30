@@ -28,10 +28,10 @@ Si el tipo de contenido es Noticia y el listado se muestra en una Noticia, muest
 REQUISITOS
 ==
 Un servidor con:
-Apache (http://www.apache.org/dyn/closer.cgi)
-MySQL (https://www.mysql.com/downloads/)
-PHP (http://www.php.net/downloads)
-Drush (https://www.drupal.org/project/drush)
+* Apache (http://www.apache.org/dyn/closer.cgi)
+* MySQL (https://www.mysql.com/downloads/)
+* PHP (http://www.php.net/downloads)
+* Drush (https://www.drupal.org/project/drush)
 
 INSTALACIÓN
 ==
