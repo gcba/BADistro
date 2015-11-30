@@ -23,3 +23,19 @@ Si el tipo de contenido es Noticia y el listado se muestra en una Noticia, muest
 * Galería de imágenes: Levanta el campo Imágenes de un contenido determinado. Las renderiza en una galería tipo modal (o lightbox)
 * Texto: Muestra el texto (campo body) de un contenido o permite mostrar un texto personalizado
 * Título: Muestra el texto (campo title) de un contenido o permite mostrar un título personalizado. Además da la opción de elegir el tag entre h1 a h6
+* 
+
+REQUISITOS
+==
+Un servidor con:
+Apache (http://www.apache.org/dyn/closer.cgi)
+MySQL (https://www.mysql.com/downloads/)
+PHP (http://www.php.net/downloads)
+Drush (https://www.drupal.org/project/drush)
+
+INSTALACIÓN
+==
+Dentro de la carpeta que se crea ejecutar:
+sh scripts/build.sh <path/al/sitio/nombreDelSitio>
+
+Luego desde el browser entrar a path/al/sitio/nombreDelSitio y seguir los pasos de la instalación de Drupal
