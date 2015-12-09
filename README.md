@@ -23,7 +23,6 @@ Si el tipo de contenido es Noticia y el listado se muestra en una Noticia, muest
 * Galería de imágenes: Levanta el campo Imágenes de un contenido determinado. Las renderiza en una galería tipo modal (o lightbox)
 * Texto: Muestra el texto (campo body) de un contenido o permite mostrar un texto personalizado
 * Título: Muestra el texto (campo title) de un contenido o permite mostrar un título personalizado. Además da la opción de elegir el tag entre h1 a h6
-* 
 
 REQUISITOS
 ==
