@@ -62,3 +62,5 @@ projects[wysiwyg][version] = 2.2
 projects[adminimal_theme][version] = 1.22
 
 projects[bootstrap][version] = 3.0
+
+projects[libraries][version] = 2.2
