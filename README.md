@@ -35,6 +35,6 @@ Un servidor con:
 INSTALACIÓN
 ==
 Dentro de la carpeta que se crea ejecutar:
-sh scripts/build.sh <path/al/sitio/nombreDelSitio>
+sh scripts/build.sh path/al/sitio/nombreDelSitio
 
 Luego desde el browser entrar a path/al/sitio/nombreDelSitio y seguir los pasos de la instalación de Drupal
