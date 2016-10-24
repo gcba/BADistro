@@ -50,7 +50,6 @@ dependencies[] = dblog
 dependencies[] = search
 dependencies[] = shortcut
 dependencies[] = toolbar
-dependencies[] = overlay
 dependencies[] = rdf
 dependencies[] = rules
 dependencies[] = rules_admin

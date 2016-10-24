@@ -1,6 +1,6 @@
 BA DISTRO
 ==
-Distribución Drupal gratuita de la Dirección General de Gobierno Electrónico
+Distribución Drupal gratuita de la Dirección General de Gestión Digital
 
 Desarrollamos BAdistro, un perfil de instalación de Drupal compuesto por un conjunto de módulos para instalar y configurar de forma pre-determinada con la finalidad de que todos los gobiernos tengan acceso a las funcionalidades más importantes de una web gubernamental. 
 
